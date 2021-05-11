@@ -2,12 +2,38 @@
 
 namespace App\Http\Livewire;
 
+use App\Services\MarketingService;
 use Livewire\Component;
+use function session;
+use function view;
 
 class Marketing extends Component
 {
-    public function render()
+    public $newCanale;
+
+    public function addCanale(MarketingService $marketingService)
     {
-        return view('livewire.marketing');
+        if(!$marketingService->inserisci($this->newCanale)){
+            session()->flash('message', 'Errore di inserimento');
+        } else {
+            session()->flash('message', 'Canale Marketing inserito');
+        }
+        $this->newCanale = '';
+    }
+
+    public function remove($canaleId, MarketingService $marketingService)
+    {
+        if(!$marketingService->rimuovi($canaleId)){
+            session()->flash('message', 'Errore di cancellazione');
+        } else {
+            session()->flash('message', 'Canale Marketing eliminato');
+        }
+    }
+
+    public function render(MarketingService $marketingService)
+    {
+        return view('livewire.marketing', [
+            'canali' => $marketingService->canali()
+        ])->extends('inizio')->section('content');
     }
 }

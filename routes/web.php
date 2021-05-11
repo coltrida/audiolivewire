@@ -22,8 +22,8 @@ Route::get('/login', LoginRegister::class)->name('login');
 
 Route::group([ 'middleware' => 'auth' ], function() {
     Route::get('/client/inserisci', ClientInserisci::class)->name('client.inserisci');
-    Route::get('/clients', ClientDatatables::class)->name('client.index');
-    Route::get('/magazzino/{id}', Magazzino::class)->name('magazzino.index');
+    Route::get('/clients/{idAudio?}/{idFiliale?}', ClientDatatables::class)->name('client.index');
+    Route::get('/magazzino/{idFiliale}', Magazzino::class)->name('magazzino.index');
 });
 
 Route::group(['middleware' => ['auth','verifyIsAdmin'], 'prefix' => 'admin'], function(){

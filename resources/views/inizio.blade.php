@@ -26,7 +26,7 @@
     <body class="antialiased">
         <livewire:nav-bar/>
 
-        <div class="relative flex items-top justify-center min-h-screen sm:pt-0" style="color: white; background-color: #1a202c">
+        <div class="relative flex items-top justify-center min-h-screen sm:pt-0 pb-3" style="color: white; background-color: #1a202c">
             @yield('content')
         </div>
 
