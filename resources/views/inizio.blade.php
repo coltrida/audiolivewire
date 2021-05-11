@@ -24,8 +24,14 @@
         @livewireStyles
     </head>
     <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900  sm:pt-0" style="color: white">
+        <livewire:nav-bar/>
+
+        <div class="relative flex items-top justify-center min-h-screen sm:pt-0" style="color: white; background-color: #1a202c">
             @yield('content')
+        </div>
+
+        <div class="card-footer text-center" style="background-color: #f8ab00; color: white">
+            @copyright coltricat 2021
         </div>
         @livewireScripts
     </body>

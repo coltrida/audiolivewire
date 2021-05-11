@@ -2,7 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Filiale;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
+use function view;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +27,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('*', function ($view)
+        {
+            $filiali = Filiale::orderBy('nome')->get();
+            //dd($filiali);
+            $view->with('filiali', $filiali );
+            if (isset(Auth::user()->name)){
+                $filialiAudio = User::with(['filiale' => function($q){
+                    $q->orderBy('nome');
+                }] )->find(Auth::id())->filiale;
+                //dd($filialiAudio);
+                $view->with('filialiAudio', $filialiAudio );
+            }
+        });
     }
 }

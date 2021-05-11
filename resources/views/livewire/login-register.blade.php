@@ -1,4 +1,4 @@
-<div xmlns:wire="http://www.w3.org/1999/xhtml">
+<div xmlns:wire="http://www.w3.org/1999/xhtml" class="row">
     <div class="row">
         <div class="col-md-12">
             @if (session()->has('message'))
@@ -62,11 +62,11 @@
                         @error('password') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
                 </div>
-                <div class="col-md-12 text-center">
+                <div class="col-md-12 text-center mt-3">
                     <button class="btn text-white btn-success" wire:click.prevent="login">Login</button>
                 </div>
                 <div class="col-md-12">
-                    Don't have account? <a class="btn btn-primary text-white" wire:click.prevent="register"><strong>Register Here</strong></a>
+                    Non sei registrato? <a class="btn btn-primary text-white" wire:click.prevent="register"><strong>Register Here</strong></a>
                 </div>
             </div>
         </form>
