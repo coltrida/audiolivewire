@@ -7,6 +7,8 @@ use App\Models\Filiale;
 use App\Models\FilialeUser;
 use App\Models\User;
 use App\Services\ClientService;
+use App\Services\FilialeService;
+use App\Services\FornitoreService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Livewire\Component;
@@ -24,11 +26,11 @@ class ClientDatatables extends LivewireDatatable
     public $idFiliale;
     public $model = Client::class;
 
-    public function mount($idAudio, $idFiliale)
+    /*public function mount()
     {
         $this->idFiliale = $idFiliale;
         $this->idAudio = $idAudio;
-    }
+    }*/
 
     public function builder()
     {
@@ -63,5 +65,10 @@ class ClientDatatables extends LivewireDatatable
             /*Column::delete()*/
 
         ];
+    }
+
+    public function render()
+    {
+        return view('livewire.datatables.datatable')->extends('inizio')->section('content');
     }
 }

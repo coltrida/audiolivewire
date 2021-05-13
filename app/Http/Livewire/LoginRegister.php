@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use App\Models\User;
 use function redirect;
+use function view;
 
 class LoginRegister extends Component
 {
@@ -18,11 +19,6 @@ class LoginRegister extends Component
         if (isset(Auth::user()->name)){
             return redirect()->to('/');
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.login-register')->extends('inizio')->section('content');
     }
 
     private function resetInputFields(){
@@ -68,5 +64,10 @@ class LoginRegister extends Component
 
         $this->resetInputFields();
 
+    }
+
+    public function render()
+    {
+        return view('livewire.login-register')->extends('inizio')->section('content');
     }
 }

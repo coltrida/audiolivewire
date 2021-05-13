@@ -16,7 +16,7 @@
                                 {{Auth::user()->name}}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li>
+                                {{--<li>
                                     <a class="dropdown-item" href="#"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -26,8 +26,8 @@
                                     <form id="logout-form" action="#" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                </li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                </li>--}}
+                                <li><a class="dropdown-item" href="{{route('logout')}}">logout</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
