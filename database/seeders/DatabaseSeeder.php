@@ -259,7 +259,7 @@ class DatabaseSeeder extends Seeder
         Product::insert([
             [
                 'matricola' => '123',
-                'stato' => config('enum.statoAPA.filiale'),
+                'stato' => config('enum.statoAPA.richiesto'),
                 'filiale_id' => 2,
                 'listino_id' => 4,
                 'fornitore_id' => 3,
@@ -269,7 +269,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'matricola' => '234',
-                'stato' => config('enum.statoAPA.filiale'),
+                'stato' => config('enum.statoAPA.richiesto'),
                 'filiale_id' => 2,
                 'listino_id' => 4,
                 'fornitore_id' => 3,
@@ -279,7 +279,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'matricola' => '456',
-                'stato' => config('enum.statoAPA.filiale'),
+                'stato' => config('enum.statoAPA.richiesto'),
                 'filiale_id' => 2,
                 'listino_id' => 4,
                 'fornitore_id' => 3,
@@ -300,7 +300,7 @@ class DatabaseSeeder extends Seeder
 
             [
                 'matricola' => 'sadf',
-                'stato' => config('enum.statoAPA.filiale'),
+                'stato' => config('enum.statoAPA.richiesto'),
                 'filiale_id' => 1,
                 'listino_id' => 4,
                 'fornitore_id' => 3,
@@ -310,7 +310,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'matricola' => 'sghggfadf',
-                'stato' => config('enum.statoAPA.filiale'),
+                'stato' => config('enum.statoAPA.richiesto'),
                 'filiale_id' => 1,
                 'listino_id' => 4,
                 'fornitore_id' => 3,
@@ -320,7 +320,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'matricola' => 'jjjjj',
-                'stato' => config('enum.statoAPA.filiale'),
+                'stato' => config('enum.statoAPA.richiesto'),
                 'filiale_id' => 1,
                 'listino_id' => 4,
                 'fornitore_id' => 3,

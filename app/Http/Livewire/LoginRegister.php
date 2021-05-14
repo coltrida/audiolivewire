@@ -35,7 +35,6 @@ class LoginRegister extends Component
         ]);
 
         if(Auth::attempt(array('email' => $this->email, 'password' => $this->password))){
-            session()->flash('message', "You are Login successful.");
             $this->emitTo('nav-bar', 'isLogged');
             return redirect()->to('/');
         }else{

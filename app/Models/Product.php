@@ -43,6 +43,11 @@ class Product extends Model
         return $this->belongsTo(Client::class);
     }
 
+    public function ddt()
+    {
+        return $this->belongsTo(Ddt::class);
+    }
+
     public function getGiorniInProvaAttribute()
     {
         $now = Carbon::now();

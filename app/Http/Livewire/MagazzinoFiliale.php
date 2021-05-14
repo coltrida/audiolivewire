@@ -13,7 +13,6 @@ use function view;
 
 class MagazzinoFiliale extends Component
 {
-    public $magazzinoFilialeVisibile;
     public $ricerca;
     public $idFiliale;
     public $idListino;
@@ -23,7 +22,6 @@ class MagazzinoFiliale extends Component
     public $prodottiInArrivo;
     public $prodottiInFiliale;
     public $prodottiInProva;
-    public $invisibile = false;
 
     protected $listeners = ['produciDdt'];
 
@@ -64,6 +62,7 @@ class MagazzinoFiliale extends Component
         $this->idListino = '';
         $this->idFornitore = '';
         $this->quantita = '';
+        $this->aggiornaMagazzino($productService);
         $this->emitTo('home', 'richiediApparecchi');
     }
 
@@ -74,6 +73,7 @@ class MagazzinoFiliale extends Component
         } else {
             session()->flash('message', 'Elemento eliminato');
         }
+        $this->aggiornaMagazzino($productService);
     }
 
     public function arrivato($id, ProductService $productService)
@@ -83,6 +83,7 @@ class MagazzinoFiliale extends Component
         } else {
             session()->flash('message', 'Elemento caricato in magazzino');
         }
+        $this->aggiornaMagazzino($productService);
     }
 
     public function nonArrivato($id, ProductService $productService)
@@ -100,6 +101,6 @@ class MagazzinoFiliale extends Component
             'fornitori' => $fornitoreService->fornitori(),
             'listino' => $this->idFornitore ? $fornitoreService->listinoFromFornitore($this->idFornitore) : [],
             'magazzino' => $filialeService->nomeFiliale($this->idFiliale)
-        ])->extends('inizio');
+        ])->extends('inizio')->section('content');
     }
 }

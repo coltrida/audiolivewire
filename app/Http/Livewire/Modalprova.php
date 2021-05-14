@@ -34,7 +34,7 @@ class Modalprova extends Component
 
     protected $listeners = [
         'clientSelectedProva',
-        'clientFattura' => 'fattura'
+        'clientFattura' => 'closeModal'
     ];
 
     public function clientSelectedProva($id)
@@ -82,6 +82,7 @@ class Modalprova extends Component
     public function remove($id, ProvaService $provaService)
     {
         $provaService->rimuovi($id);
+        $this->fornitoreId = '';
     }
 
     public function removeFromProva($id,$idProdotto, $importo)
@@ -101,11 +102,11 @@ class Modalprova extends Component
         $this->visibile = true;
     }
 
-    public function fattura($idProva, ProvaService $provaService)
+    /*public function fattura($idProva, ProvaService $provaService)
     {
         $this->visibile = true;
         $provaService->fattura($idProva);
-    }
+    }*/
 
     public function scegliProdotto($value)
     {

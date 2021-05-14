@@ -27,7 +27,7 @@ class Home extends Component
     public $prodottiRichiesti = [];
 
     protected $listeners = [
-        'clientFattura',
+        'clientFattura', 'produciDdt'
     ];
 
     public function mount(ProductService $productService)
@@ -40,12 +40,13 @@ class Home extends Component
             dd($prodottiRichiesti.' - '.$value);
         }*/
 
-    public function aggiungiAlDdt($product, $idFiliale, DdtService $ddtService)
+    public function aggiungiAlDdt($product, $idFiliale, DdtService $ddtService, ProductService $productService)
     {
         $product['matricolaAssociata'] = $this->matricola[$product['id']];
         array_push($this->ddt, $product);
         $ddtService->inserimentoTemporaneoProdotto($product['id']);
         $this->filialeSelezionata = $idFiliale;
+        $this->prodottiRichiesti = $productService->prodottiRichiestiTutteFiliali();
         // dd($this->aperto[$idFiliale]);
     }
 
@@ -55,7 +56,7 @@ class Home extends Component
         $ddtService->eliminazioneTemporaneaProdotto($id);
     }
 
-    public function produciDdt(DdtService $ddtService)
+    public function produciDdt(DdtService $ddtService, ProductService $productService)
     {
         if(!$ddtService->produciDdt($this->ddt)){
             session()->flash('message', 'Errore di produzione DDT');
@@ -63,6 +64,7 @@ class Home extends Component
             session()->flash('message', 'DDT prodotto');
         }
         $this->ddt = [];
+        $this->prodottiRichiesti = $productService->prodottiRichiestiTutteFiliali();
     }
 
     public function clientFattura($id, ProvaService $provaService)

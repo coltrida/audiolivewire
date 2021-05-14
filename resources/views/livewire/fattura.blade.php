@@ -28,7 +28,7 @@
                             <div  class="form-label">{{isset($prova) ? $prova->client->telefono : ''}}</div>
                         </div>
                         <div class="mb-3 col-3">
-                            <label for="codfisc" class="form-label">Codice Fiscale</label>
+                            <div class="form-label">Codice Fiscale</div>
                             <input type="text"  wire:model="codfisc" class="form-control" placeholder="codice fiscale">
                         </div>
                     </div>
@@ -63,15 +63,15 @@
 
                         <div class="row">
                             <div class="col">
-                                <label for="acconto" class="form-label">Acconto</label>
+                                <div class="form-label">Acconto</div>
                                 <input type="number"  wire:model="acconto" class="form-control" placeholder="acconto">
                             </div>
                             <div class="col">
-                                <label for="rate" class="form-label">Nr. Rate</label>
+                                <div class="form-label">Nr. Rate</div>
                                 <input type="number"  wire:model="rate" class="form-control" placeholder="rate">
                             </div>
                             <div class="col">
-                                <label for="totale" class="form-label">Totale Fattura</label>
+                                <div class="form-label">Totale Fattura</div>
                                 <input type="number"  wire:model="totFattura" class="form-control" >
                             </div>
                         </div>

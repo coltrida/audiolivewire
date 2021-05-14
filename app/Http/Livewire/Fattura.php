@@ -18,6 +18,7 @@ class Fattura extends Component
     public $totFattura;
     public $rate;
     public $acconto;
+    public $idProva;
 
     protected $listeners = [
         'clientFattura',
@@ -26,6 +27,7 @@ class Fattura extends Component
     public function clientFattura($idProva, ProvaService $provaService)
     {
         $this->visibile = false;
+        $this->idProva = $idProva;
         $this->prova = $provaService->infoprova($idProva);
         $this->codfisc = $this->prova->client->codfisc;
         $this->totFattura = $this->prova->tot;
@@ -37,8 +39,9 @@ class Fattura extends Component
         $this->visibile = true;
     }
 
-    public function fattura(ClientService $clientService, FatturaService $fatturaService)
+    public function fattura(ClientService $clientService, FatturaService $fatturaService, ProvaService $provaService)
     {
+        $provaService->fattura($this->idProva);
         if($clientService->inserisciCodfisc($this->prova->client->id, $this->codfisc)){
             if(!$fatturaService->crea([
                 'prova' => $this->prova,

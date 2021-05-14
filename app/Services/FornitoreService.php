@@ -7,6 +7,7 @@ namespace App\Services;
 use App\Models\Filiale;
 use App\Models\Fornitore;
 use Illuminate\Support\Str;
+use function config;
 use function dd;
 
 class FornitoreService
@@ -51,17 +52,17 @@ class FornitoreService
         /*dd(Filiale::with(['products' => function ($q) use($idFornitore) {
             $q->with(['filiale', 'fornitore', 'listino'])->whereHas('fornitore', function($z) use($idFornitore) {
                 $z->where('id', $idFornitore);
-            })->where('stato', 'FILIALE');
+            })->where('stato', config('enum.statoAPA.filiale'));
         }])->find($idFiliale)->products);*/
 
         return Filiale::with(['products' => function ($q) use($idFornitore) {
             $q->with(['filiale', 'fornitore', 'listino'])->whereHas('fornitore', function($z) use($idFornitore) {
                 $z->where('id', $idFornitore);
-            })->where('stato', 'FILIALE');
+            })->where('stato', config('enum.statoAPA.filiale'));
         }])->find($idFiliale) ? Filiale::with(['products' => function ($q) use($idFornitore) {
             $q->with(['filiale', 'fornitore', 'listino'])->whereHas('fornitore', function($z) use($idFornitore) {
                 $z->where('id', $idFornitore);
-            })->where('stato', 'FILIALE');
+            })->where('stato', config('enum.statoAPA.filiale'));
         }])->find($idFiliale)->products : [];
     }
 }

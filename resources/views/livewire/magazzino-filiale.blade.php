@@ -1,16 +1,11 @@
-<div class="flex container" xmlns:wire="http://www.w3.org/1999/xhtml"
-     @if($magazzinoFilialeVisibile) style="display: block" @else style="display: none;" @endif>
+<div class="flex container" xmlns:wire="http://www.w3.org/1999/xhtml">
     <div class="row">
 
         <div class="row pr-5">
             <div class="col">
                 <h1 class=" text-3xl">Magazzino Filiale {{$magazzino}}</h1>
             </div>
-            @if (session()->has('message'))
-                <div class="col p-2 bg-green-200 text-green-800 rounded shadow-sm">
-                    {{ session('message') }}
-                </div>
-            @endif
+            @include('partials.messaggio')
         </div>
 
         @error('newComment') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
@@ -112,24 +107,21 @@
 
         @if($prodottiInFiliale->count() > 0) <h2 class="mt-4">PRODOTTI IN FILIALE</h2> @endif
         @foreach($prodottiInFiliale as $item)
-            <div class="rounded border p-3 my-2" style="background-color: #124874; box-shadow: 2px 2px 4px #000000;">
+
+            <div class="rounded border p-1 my-2" style="background-color: #124874; box-shadow: 2px 2px 4px #000000;">
                 <div class="row justify-between my-1 align-items-center">
                     <div class="col">
-                        <p >{{$item->listino->nome}}</p>
+                        <div class="font-bold"> {{$item->listino->nome}} </div>
                     </div>
                     <div class="col">
-                        <p>{{$item->stato}}</p>
+                        <div class="font-bold"> {{$item->stato}} </div>
                     </div>
                     <div class="col">
-                        <p >{{$item->fornitore->nome}}</p>
+                        <div class="font-bold"> {{$item->matricola}} </div>
                     </div>
                     <div class="col">
-                        <p >{{$item->matricola}}</p>
+                        <div class="font-bold"> {{$item->giorniInProva}} </div>
                     </div>
-                    <div class="col">
-                        <p >{{$item->giorniInProva}}</p>
-                    </div>
-
                 </div>
             </div>
         @endforeach
