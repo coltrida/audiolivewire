@@ -7,6 +7,7 @@ namespace App\Services;
 use App\Models\Client;
 use App\Models\Fattura;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\App;
 use function dd;
 
 class FatturaService
@@ -20,14 +21,14 @@ class FatturaService
         $fattura->nr_rate = (int)$request['rate'];
         $fattura->tot_fattura = (int)$request['totFattura'];
         $fattura->al_saldo = (int)$request['totFattura'] - (int)$request['acconto'];
-        $res = $fattura->save();
+        $fattura->save();
 
         foreach ($request['prova']['product'] as $prodotto){
             $prodotto->fattura_id = $fattura->id;
             $prodotto->save();
         }
 
-        return $res;
+        return $fattura;
     }
 
     public function listaFattureFromClient($id)
@@ -37,5 +38,13 @@ class FatturaService
                 $z->with('listino');
             }]);
         }])->find($id)->provaFattura;
+    }
+
+    public function creaPdf($fattura)
+    {
+        //dd($fattura);
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML('<h1>Test</h1>');
+        return $pdf->save("storage/fatture/2021/$fattura->id.pdf");
     }
 }

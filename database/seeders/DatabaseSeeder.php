@@ -18,6 +18,7 @@ use Carbon\Carbon;
 use Hash;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use function config;
 use function now;
@@ -259,7 +260,7 @@ class DatabaseSeeder extends Seeder
         Product::insert([
             [
                 'matricola' => '123',
-                'stato' => config('enum.statoAPA.richiesto'),
+                'stato' => config('enum.statoAPA.filiale'),
                 'filiale_id' => 2,
                 'listino_id' => 4,
                 'fornitore_id' => 3,
@@ -269,7 +270,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'matricola' => '234',
-                'stato' => config('enum.statoAPA.richiesto'),
+                'stato' => config('enum.statoAPA.filiale'),
                 'filiale_id' => 2,
                 'listino_id' => 4,
                 'fornitore_id' => 3,
@@ -279,7 +280,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'matricola' => '456',
-                'stato' => config('enum.statoAPA.richiesto'),
+                'stato' => config('enum.statoAPA.filiale'),
                 'filiale_id' => 2,
                 'listino_id' => 4,
                 'fornitore_id' => 3,
@@ -300,7 +301,7 @@ class DatabaseSeeder extends Seeder
 
             [
                 'matricola' => 'sadf',
-                'stato' => config('enum.statoAPA.richiesto'),
+                'stato' => config('enum.statoAPA.filiale'),
                 'filiale_id' => 1,
                 'listino_id' => 4,
                 'fornitore_id' => 3,
@@ -310,7 +311,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'matricola' => 'sghggfadf',
-                'stato' => config('enum.statoAPA.richiesto'),
+                'stato' => config('enum.statoAPA.filiale'),
                 'filiale_id' => 1,
                 'listino_id' => 4,
                 'fornitore_id' => 3,
@@ -320,7 +321,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'matricola' => 'jjjjj',
-                'stato' => config('enum.statoAPA.richiesto'),
+                'stato' => config('enum.statoAPA.filiale'),
                 'filiale_id' => 1,
                 'listino_id' => 4,
                 'fornitore_id' => 3,
@@ -381,5 +382,6 @@ class DatabaseSeeder extends Seeder
                 'recall' => null
             ],
         ]);
+
     }
 }

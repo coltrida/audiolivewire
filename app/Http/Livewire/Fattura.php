@@ -43,7 +43,7 @@ class Fattura extends Component
     {
         $provaService->fattura($this->idProva);
         if($clientService->inserisciCodfisc($this->prova->client->id, $this->codfisc)){
-            if(!$fatturaService->crea([
+            if(!$fattura = $fatturaService->crea([
                 'prova' => $this->prova,
                 'totFattura' => $this->totFattura,
                 'rate' => $this->rate,
@@ -58,6 +58,7 @@ class Fattura extends Component
                 $this->rate = null;
                 $this->acconto = null;
                 session()->flash('message', 'Fattura creata');
+                $fatturaService->creaPdf($fattura);
             }
         }
     }

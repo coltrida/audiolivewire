@@ -24,7 +24,7 @@ Route::get('/login', LoginRegister::class)->name('login');
 Route::get('/logout', Logout::class)->name('logout');
 
 Route::group([ 'middleware' => 'auth' ], function() {
-    Route::get('/client/inserisci/{idFiliale}/{idClient?}', ClientInserisci::class)->name('client.inserisci');
+    Route::get('/client/inserisci/{idFiliale?}/{idClient?}', ClientInserisci::class)->name('client.inserisci');
     Route::get('/clients/{idAudio?}/{idFiliale?}', Clients::class)->name('client.index');
     Route::get('/magazzino/{idFiliale}', Magazzino::class)->name('magazzino.index');
     Route::get('/magazzinoFiliale/{idFiliale}', MagazzinoFiliale::class)->where('id', '[1-9]+')->name('magazzinoFiliale.index');
