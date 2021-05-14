@@ -3,7 +3,7 @@
 
     <div style="color: black">
 
-        <a class="btn btn-primary w-full mb-2 shadow-lg" href="{{route('client.inserisci')}}">Inserisci</a>
+        <a class="btn btn-primary w-full mb-2 shadow-lg" href="{{route('client.inserisci', ['idFiliale' => $idFiliale])}}">Inserisci</a>
 
         <livewire:client-datatables
             searchable="nome, cognome"
