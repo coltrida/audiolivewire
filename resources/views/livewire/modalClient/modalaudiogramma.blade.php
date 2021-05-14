@@ -31,7 +31,7 @@
                                     <a wire:click="scegliAudiometria({{$audiometrie[$i]->id}})" class="btn btn-primary">{{$audiometrie[$i]->created_at->format('d-m-Y')}}</a>
                                 </div>
                         @endfor
-                        <a class="btn btn-primary" wire:click="cambia(0)">Nuovo</a>
+                        
                     </div>
                 </div>
                 @endif

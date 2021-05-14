@@ -4,7 +4,6 @@ use App\Http\Livewire\Amministrazione;
 use App\Http\Livewire\AssociaFiliale;
 use App\Http\Livewire\Audioprotesisti;
 use App\Http\Livewire\Budget;
-use App\Http\Livewire\ClientDatatables;
 use App\Http\Livewire\ClientInserisci;
 use App\Http\Livewire\Clients;
 use App\Http\Livewire\Filiali;
