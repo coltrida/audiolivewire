@@ -77,11 +77,11 @@ class ClientService
 
     }
 
-    public function recall($request)
+    public function recall($clientId, $clientCall)
     {
-        $client = Client::find($request->id_client);
+        $client = Client::find($clientId);
         $client->recall = '1';
-        $client->datarecall = $request->recall;
+        $client->datarecall = $clientCall;
         return $client->save();
     }
 
