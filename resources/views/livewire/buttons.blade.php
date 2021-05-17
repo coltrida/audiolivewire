@@ -56,7 +56,10 @@
         title="ddt">
         <i class="fas fa-truck"></i>
     </a>
-    <a href="#" class="btn btn-sm" style="background-color: #33c269; box-shadow: 2px 2px 4px #000000; width: 35px" title="asl">
+    <a href="#" class="btn btn-sm"
+        wire:click="$emit('asl', {{$id}})"
+        style="background-color: #33c269; box-shadow: 2px 2px 4px #000000; width: 35px"
+        title="asl">
         <i class="fas fa-book-medical"></i>
     </a>
 </div>
