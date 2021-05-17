@@ -40,6 +40,11 @@ class Prova extends Model
         return $this->hasOne(Fattura::class);
     }
 
+    public function ddt()
+    {
+        return $this->hasOne(Ddt::class);
+    }
+
     public function getGiorniInProvaAttribute()
     {
         setlocale(LC_TIME, 'it_IT');

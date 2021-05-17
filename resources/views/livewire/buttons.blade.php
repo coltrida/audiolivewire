@@ -50,7 +50,10 @@
        title="fatture" style="color: white; background-color: #616161; border-color: #8b8b8b; box-shadow: 2px 2px 4px #000000; width: 35px">
         <i class="fas fa-file-alt"></i>
     </a>
-    <a href="#" class="btn btn-sm mr-1" style="color: white;background-color: #c22286; box-shadow: 2px 2px 4px #000000; width: 35px" title="ddt">
+    <a href="#" class="btn btn-sm mr-1"
+        wire:click="$emit('listaDdt', {{$id}})"
+        style="color: white;background-color: #c22286; box-shadow: 2px 2px 4px #000000; width: 35px"
+        title="ddt">
         <i class="fas fa-truck"></i>
     </a>
     <a href="#" class="btn btn-sm" style="background-color: #33c269; box-shadow: 2px 2px 4px #000000; width: 35px" title="asl">

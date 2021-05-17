@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Client;
 use App\Models\Product;
 use App\Services\ClientService;
+use App\Services\DdtService;
 use App\Services\FornitoreService;
 use App\Services\ProvaService;
 use Illuminate\Support\Facades\Auth;
@@ -46,7 +47,7 @@ class Modalprova extends Component
         $this->clientId = $id;
     }
 
-    public function aggiungi(ProvaService $provaService)
+    public function aggiungi(ProvaService $provaService, DdtService $ddtService)
     {
         $reques = [
             'client_id' => $this->clientId,
@@ -56,9 +57,9 @@ class Modalprova extends Component
             'tot' => $this->totale,
             'prodotti' => $this->prodotti,
         ];
-        $provaService->inserisci($reques);
-        /*$this->filialeId = '';*/
-/*        $this->fornitoreId = '';*/
+        $provaId = $provaService->inserisci($reques);
+        $ddtService->produciDdtForClient($provaId);
+
         $this->stato = '';
         $this->totale = '';
         $this->prodotti = [];

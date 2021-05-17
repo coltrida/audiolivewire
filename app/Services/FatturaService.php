@@ -42,6 +42,15 @@ class FatturaService
         }])->find($id)->provaFattura;
     }
 
+    public function listaDdtFromClient($id)
+    {
+        return Client::with(['provaDdt' => function($q){
+            $q->with(['ddt', 'product' => function($z){
+                $z->with('listino');
+            }]);
+        }])->find($id)->provaFattura;
+    }
+
     public function creaPdf($fattura)
     {
         //dd($fattura);

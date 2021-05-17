@@ -341,7 +341,7 @@ class DatabaseSeeder extends Seeder
             ],
         ]);
 
-        Ddt::insert([
+/*        Ddt::insert([
             [
                 'filiale_id' => 2,
                 'nome_destinazione' => 'CENTRO UDITO LUCCA',
@@ -362,7 +362,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
-        ]);
+        ]);*/
 
         Tipologia::insert([
             [

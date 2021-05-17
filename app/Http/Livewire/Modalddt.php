@@ -2,17 +2,17 @@
 
 namespace App\Http\Livewire;
 
-
 use App\Services\FatturaService;
 use Livewire\Component;
+use function dd;
 
-class Modalfattura extends Component
+class Modalddt extends Component
 {
     public $visibile = true;
-    public $listaFatture = [];
+    public $listaDdt = [];
 
     protected $listeners = [
-        'listaFatture'
+        'listaDdt'
     ];
 
     public function closeModal()
@@ -20,14 +20,14 @@ class Modalfattura extends Component
         $this->visibile = true;
     }
 
-    public function listaFatture($id, FatturaService $fatturaService)
+    public function listaDdt($id, FatturaService $fatturaService)
     {
         $this->visibile = false;
-        $this->listaFatture = $fatturaService->listaFattureFromClient($id);
+        $this->listaDdt = $fatturaService->listaDdtFromClient($id);
     }
 
     public function render()
     {
-        return view('livewire.modalClient.modalfattura');
+        return view('livewire.modalClient.modalddt');
     }
 }

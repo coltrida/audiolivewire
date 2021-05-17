@@ -15,11 +15,12 @@
         <livewire:modalcall/>
         <livewire:modalnote/>
         <livewire:modalappuntamenti/>
+        <livewire:modalfattura/>
         <livewire:modalprova
             :filialeId="$idFiliale"
         />
-        <livewire:modalfattura/>
         <livewire:modalaudiogramma/>
+        <livewire:modalddt/>
         <livewire:fattura/>
     </div>
 </div>

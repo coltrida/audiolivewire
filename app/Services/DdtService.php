@@ -6,6 +6,7 @@ namespace App\Services;
 
 use App\Models\Ddt;
 use App\Models\Product;
+use App\Models\Prova;
 use function config;
 use function dd;
 
@@ -44,5 +45,19 @@ class DdtService
         }
 
         return $res;
+    }
+
+    public function produciDdtForClient($provaId)
+    {
+        $prova = Prova::with('client', 'product')->find($provaId);
+        $nuovoDdt = new Ddt();
+        $nuovoDdt->prova_id = $provaId;
+        $nuovoDdt->nome_destinazione = $prova->client->nome.' '.$prova->client->cognome;
+        $nuovoDdt->indirizzo_destinazione = $prova->client->indirizzo;
+        $nuovoDdt->citta_destinazione = $prova->client->citta;
+        $nuovoDdt->cap_destinazione = $prova->client->cap;
+        $nuovoDdt->provincia_destinazione = $prova->client->provincia;
+        $nuovoDdt->filiale_id = $prova->filiale_id;
+        $nuovoDdt->save();
     }
 }

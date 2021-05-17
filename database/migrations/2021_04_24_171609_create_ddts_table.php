@@ -16,6 +16,7 @@ class CreateDdtsTable extends Migration
         Schema::create('ddts', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('filiale_id')->unsigned();
+            $table->bigInteger('prova_id')->unsigned();
             $table->string('nome_destinazione');
             $table->string('indirizzo_destinazione');
             $table->string('citta_destinazione');

@@ -47,7 +47,7 @@ class ProvaService
             $prodotto->client_id = $request['client_id'];
             $prodotto->save();
         }
-        //dd($request['prodotti']);
+        return $prova->id;
     }
 
     public function rimuovi($id)

@@ -1,4 +1,4 @@
-<div id="callModal" @if($visibile) style="display: none" @else style="display: block; height: 100%;
+<div id="provaModal" @if($visibile) style="display: none" @else style="display: block; height: 100%;
   width: 100%;
   position: absolute;
   top: 0;
