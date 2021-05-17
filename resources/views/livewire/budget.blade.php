@@ -19,7 +19,7 @@
                                 <div class="col">
                                     <div class="row">
                                         <div class="col-2">
-                                            <input type="radio" wire:model="audioId" class="form-check-input" value="{{$audio->id}}" >
+                                            <input type="radio" wire:model.defer="audioId" class="form-check-input" value="{{$audio->id}}" >
                                         </div>
                                         <div class="col-10">
                                             <p class="font-bold text-left">{{$audio->name}}</p>

@@ -16,7 +16,7 @@
                 <form wire:submit.prevent="fattura">
                     <div class="row">
                         <div class="mb-3 col-3">
-                            <div  class="form-label">NOME </div>
+                            <div  class="form-label">NOME {{$visibile}}</div>
                             <div  class="form-label">{{isset($prova) ? $prova->client->nome : ''}} </div>
                         </div>
                         <div class="mb-3 col-3">
@@ -76,7 +76,7 @@
                             </div>
                         </div>
                     @endif
-                    <button {{$codfisc ? '' : 'disabled'}} type="submit" class="mt-3 p-2 bg-blue-500 w-20 rounded shadow text-white" style="background-color: {{$codfisc ? 'green' : 'red'}}">Fattura</button>
+                    <button {{$codfisc ? '' : 'disabled'}} type="submit" wire:click="closeModal" class="mt-3 p-2 bg-blue-500 w-20 rounded shadow text-white" style="background-color: {{$codfisc ? 'green' : 'red'}}">Fattura</button>
                 </form>
             </div>
         </div>

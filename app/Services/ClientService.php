@@ -103,6 +103,15 @@ class ClientService
         }])->find($id)->provaInCorso;
     }
 
+    public function getProvePassate($id)
+    {
+        return Client::with(['provePassate' => function ($q){
+            $q->with(['product' => function($q){
+                $q->with('listino');
+            }])->orderBy('inizio_prova', 'asc');
+        }])->find($id)->provePassate;
+    }
+
     public function getRecallsOggi()
     {
         $oggi = Carbon::now()->format('Y-m-d');

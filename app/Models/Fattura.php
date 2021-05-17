@@ -15,4 +15,9 @@ class Fattura extends Model
     {
         return $this->hasMany(Ratefattura::class);
     }
+
+    public function prova()
+    {
+        return $this->belongsTo(Prova::class);
+    }
 }

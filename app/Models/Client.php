@@ -40,6 +40,11 @@ class Client extends Model
         return $this->hasMany(Prova::class);
     }
 
+    public function provePassate()
+    {
+        return $this->hasMany(Prova::class)->where('stato', '!=', config('enum.statoAPA.prova'));
+    }
+
     public function provaInCorso()
     {
         return $this->hasMany(Prova::class)->where('stato', config('enum.statoAPA.prova'));

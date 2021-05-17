@@ -6,6 +6,7 @@ use App\Services\ClientService;
 use App\Services\FatturaService;
 use App\Services\ProvaService;
 use Livewire\Component;
+use function dd;
 use function session;
 use function view;
 
@@ -57,7 +58,9 @@ class Fattura extends Component
                 $this->totFattura = null;
                 $this->rate = null;
                 $this->acconto = null;
+                $this->closeModal();
                 session()->flash('message', 'Fattura creata');
+                $this->emit('produciFattura');
                 $fatturaService->creaPdf($fattura);
             }
         }

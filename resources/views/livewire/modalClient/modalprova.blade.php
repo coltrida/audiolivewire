@@ -50,7 +50,7 @@
                         </div>
                     </div>
 
-                    <a wire:click="aggiungiAllaProva({{$product}})" class="btn btn-success">aggiungi alla prova</a>
+                    <button {{$importo ? '' : 'disabled'}} wire:click.prevent="aggiungiAllaProva({{$product}})" class="btn btn-success">aggiungi alla prova</button>
 
                     <div style="height: 190px; overflow: auto">
                         @foreach($prodotti as $key => $item)
@@ -110,6 +110,33 @@
                             </div>
                         </div>
                     @endforeach
+                        @foreach($provePassate as $item)
+                            <div class="rounded border my-2 mr-4" style="background-color: #052e3c; box-shadow: 2px 2px 4px #000000; color: white">
+                                <div class="row justify-between my-1 align-items-center">
+                                    <div class="col">
+                                        <p style="font-size: 12px; padding-left: 10px">{{$item->inizio_prova}}</p>
+                                    </div>
+                                    <div class="col">
+                                        <p style="font-size: 12px">{{$item->stato}}</p>
+                                    </div>
+                                    <div class="col">
+                                        <p style="font-size: 12px">€ {{$item->tot}}</p>
+                                    </div>
+                                    <div class="col">
+                                        @foreach($item->product as $prodotto)
+                                            <div style="font-size: 12px">{{$prodotto->listino->nome}} - {{$prodotto->matricola}}</div>
+                                        @endforeach
+                                    </div>
+                                    <div class="col-1">
+
+                                    </div>
+                                    <div class="col-1">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        @endforeach
                 </div>
             </div>
         </div>

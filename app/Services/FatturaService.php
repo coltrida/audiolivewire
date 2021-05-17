@@ -8,7 +8,9 @@ use App\Models\Client;
 use App\Models\Fattura;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
+use function compact;
 use function dd;
+use function view;
 
 class FatturaService
 {
@@ -44,7 +46,7 @@ class FatturaService
     {
         //dd($fattura);
         $pdf = App::make('dompdf.wrapper');
-        $pdf->loadHTML('<h1>Test</h1>');
-        return $pdf->save("storage/fatture/2021/$fattura->id.pdf");
+        $pdf->loadHTML(view('pdf.fattura', compact('fattura')))->save("storage/fatture/2021/$fattura->id.pdf");
+       // return $pdf->save("storage/fatture/2021/$fattura->id.pdf");
     }
 }

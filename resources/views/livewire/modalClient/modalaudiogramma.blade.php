@@ -31,7 +31,7 @@
                                     <a wire:click="scegliAudiometria({{$audiometrie[$i]->id}})" class="btn btn-primary">{{$audiometrie[$i]->created_at->format('d-m-Y')}}</a>
                                 </div>
                         @endfor
-                        
+
                     </div>
                 </div>
                 @endif
@@ -46,7 +46,7 @@
                                     <div class="col-2">{{$i*10}}</div>
                                     @for($j = 1; $j < 11; $j++)
                                         <div class="col p-0 m-0">
-                                            <input name="sinistro[{{$j}}]" id="sinistro[{{$i}}{{$j}}]" value="{{$i}}" wire:model.debounce.0ms="sinistro.{{$j}}" type="radio"/>
+                                            <input name="sinistro[{{$j}}]" id="sinistro[{{$i}}{{$j}}]" value="{{$i}}" wire:model.defer="sinistro.{{$j}}" type="radio"/>
                                             <label for="sinistro[{{$i}}{{$j}}]" class="sinistro">x</label>
                                         </div>
                                     @endfor
@@ -75,7 +75,7 @@
                                     <div class="col-2">{{$i*10}}</div>
                                     @for($j = 1; $j < 11; $j++)
                                         <div class="col p-0 m-0">
-                                            <input name="destro[{{$j}}]" id="destro[{{$i}}{{$j}}]" value="{{$i}}" wire:model.debounce.0ms="destro.{{$j}}" type="radio"/>
+                                            <input name="destro[{{$j}}]" id="destro[{{$i}}{{$j}}]" value="{{$i}}" wire:model.defer="destro.{{$j}}" type="radio"/>
                                             <label for="destro[{{$i}}{{$j}}]" class="destro">o</label>
                                         </div>
                                     @endfor

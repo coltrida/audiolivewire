@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Filiale;
+use App\Models\User;
 use App\Services\ClientService;
 use App\Services\DdtService;
 use App\Services\FilialeService;
@@ -25,14 +26,27 @@ class Home extends Component
     public $matricola = [];
     public $filialeSelezionata = '';
     public $prodottiRichiesti = [];
+    public $proveInCorso = [];
+    public $finalizzati = [];
 
     protected $listeners = [
-        'clientFattura', 'produciDdt'
+        'produciDdt', 'produciFattura'
     ];
 
-    public function mount(ProductService $productService)
+    public function mount(ProductService $productService, UserService $userService)
     {
-        $this->prodottiRichiesti = $productService->prodottiRichiestiTutteFiliali();
+        if(isset(Auth::user()->name)){
+            $this->prodottiRichiesti = $productService->prodottiRichiestiTutteFiliali();
+
+            $this->proveInCorso = $userService->proveInCorso();
+            $this->finalizzati = $userService->finalizzatiDelMese();
+        }
+    }
+
+    public function produciFattura(UserService $userService)
+    {
+        $this->proveInCorso = $userService->proveInCorso();
+        $this->finalizzati = $userService->finalizzatiDelMese();
     }
 
     /*    public function updated($prodottiRichiesti, $value)
@@ -67,14 +81,15 @@ class Home extends Component
         $this->prodottiRichiesti = $productService->prodottiRichiestiTutteFiliali();
     }
 
-    public function clientFattura($id, ProvaService $provaService)
+    /*public function clientFattura($id, ProvaService $provaService)
     {
         $provaService->fattura($id);
-    }
+    }*/
 
-    public function reso($id, ProvaService $provaService)
+    public function reso($id, ProvaService $provaService, UserService $userService)
     {
         $provaService->rimuovi($id);
+        $this->proveInCorso = $userService->proveInCorso();
     }
 
     public function render(UserService $userService, ProductService $productService, ClientService $clientService, FilialeService $filialeService)
@@ -103,8 +118,8 @@ class Home extends Component
                 $nomeVista = 'livewire.home.home-audio';
                 $parametri = [
                     'budget' => $userService->getBudgetDelMese(Auth::id()),
-                    'proveInCorso' => $userService->proveInCorso(),
-                    'finalizzati' => $userService->finalizzatiDelMese(),
+                    /*'proveInCorso' => $userService->proveInCorso(),
+                    'finalizzati' => $userService->finalizzatiDelMese(),*/
                     'appuntamentiOggi' => $userService->appuntamentiOggi(),
                     'appuntamentiDomani' => $userService->appuntamentiDomani(),
                     'compleanniOggi' => $clientService->compleanniOggi(),

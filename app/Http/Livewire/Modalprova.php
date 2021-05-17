@@ -123,6 +123,7 @@ class Modalprova extends Component
         //dd($userService->getFiliali());
         return view('livewire.modalClient.modalprova', [
             'prove' => $this->clientId ? $clientService->getProve($this->clientId) : [],
+            'provePassate' => $this->clientId ? $clientService->getProvePassate($this->clientId) : [],
             'fornitori' => $fornitoreService->fornitori(),
             'prodottiInMagazzino' => $this->listaApaDisponibili
             ]);

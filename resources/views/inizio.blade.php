@@ -39,6 +39,7 @@
 
         <div class="relative flex items-top justify-center min-h-screen sm:pt-0 pb-3" style="color: white; background-color: #1a202c">
             @yield('content')
+            <livewire:fattura/>
         </div>
 
         <div class="card-footer text-center" style="background-color: #f8ab00; color: white">

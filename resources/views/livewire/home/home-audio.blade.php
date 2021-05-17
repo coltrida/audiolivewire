@@ -6,8 +6,9 @@
                 <p class="font-bold text-lg ">Finalizzati nel mese</p>
                 <div class="rounded border p-1 my-2" style="background-color: #537429; box-shadow: 2px 2px 4px #000000;">
                     <div class="row justify-between my-1 align-items-center">
-                        <div class="col">
-                            <div class="font-bold">Budget del mese: € {{ ( (int)$budget->budgetAnno * (int)$budget->target ) / 100 }}</div>
+                        <div class="col flex" style="justify-content: space-between">
+                            <div>Budget del mese: € {{ ( (int)$budget->budgetAnno * (int)$budget->target ) / 100 }}</div>
+                            <div>Fatturato: € {{ $finalizzati->sum('tot')  }}</div>
                         </div>
                     </div>
                 </div>
@@ -15,24 +16,28 @@
                     <div class="rounded border p-1 my-2" style="background-color: #537429; box-shadow: 2px 2px 4px #000000;">
                         <div class="row justify-between my-1 align-items-center">
                             <div class="col">
-                                <div class="font-bold">Finalizzato il: {{$prova->fine_prova}}</div>
+                                <div class="flex" style="justify-content: space-between">
+                                    <div>Finalizzato il: {{$prova->fine_prova}}</div>
+                                    <div>Tot:
+                                        <span class="badge bg-warning text-dark">
+                                            € {{$prova->tot}}
+                                        </span>
+                                    </div>
+                                </div>
+
                                 <div class="text-right">Cliente:
                                     <span class="badge bg-warning text-dark">
                                             {{$prova->client->nome}} {{$prova->client->cognome}}
                                         </span>
                                 </div>
-                                <div>{{$prova->client->indirizzo}} - {{$prova->client->citta}} - {{$prova->client->provincia}}</div>
+                                <div style="font-size: 12px">{{$prova->client->indirizzo}} - {{$prova->client->citta}} - {{$prova->client->provincia}}</div>
                                 @foreach($prova->product as $product)
-                                    <div class="row" >
+                                    <div class="row" style="font-size: 12px">
                                         <div class="col">matricola: {{$product->matricola}}</div>
                                         <div class="col"> {{$product->listino->nome}}</div>
                                     </div>
                                 @endforeach
-                                <div class="font-bold text-right">Tot:
-                                    <span class="badge bg-warning text-dark">
-                                            € {{$prova->tot}}
-                                        </span>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -45,7 +50,7 @@
                     <div class="rounded border p-1 my-2" style="background-color: #537429; box-shadow: 2px 2px 4px #000000;">
                         <div class="row justify-between my-1 align-items-center">
                             <div class="col">
-                                <div class="font-bold">Giorni in Prova: {{$prova->giorniInProva}}</div>
+                                <div>Giorni in Prova: {{$prova->giorniInProva}}</div>
                                 <div >
                                     <div class="text-right">Cliente:
                                         <span class="badge bg-warning text-dark">
