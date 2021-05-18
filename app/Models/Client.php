@@ -30,6 +30,11 @@ class Client extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function marketing()
+    {
+        return $this->belongsTo(Marketing::class);
+    }
+
     public function filiale()
     {
         return $this->belongsTo(Filiale::class);

@@ -25,26 +25,29 @@
                 <button type="submit" class="btn btn-success">Aggiungi</button>
             </div>
         </form>
-        @foreach($filiali as $item)
+        @foreach($filialiFatturato as $item)
             <div class="rounded border p-3 my-2" style="background-color: #124874; box-shadow: 2px 2px 4px #000000;">
                 <div class="row justify-between my-1 align-items-center">
-                    <div class="col">
+                    <div class="col-2">
                         <p class="font-bold">{{$item->nome}}</p>
                     </div>
-                    <div class="col-3">
-                        <p class="font-bold">{{$item->indirizzo}}</p>
-                    </div>
-                    <div class="col">
-                        <p class="font-bold">{{$item->telefono}}</p>
-                    </div>
-                    <div class="col">
-                        <p class="font-bold">{{$item->citta}}</p>
-                    </div>
-                    <div class="col">
-                        <p class="font-bold">{{$item->cap}}</p>
+                    <div class="col-2">
+                        <p >{{$item->indirizzo}}</p>
                     </div>
                     <div class="col-1">
-                        <p class="font-bold">{{$item->provincia}}</p>
+                        <p >{{$item->telefono}}</p>
+                    </div>
+                    <div class="col-2">
+                        <p >{{$item->citta}}</p>
+                    </div>
+                    <div class="col-1">
+                        <p >{{$item->cap}}</p>
+                    </div>
+                    <div class="col-1">
+                        <p >{{$item->provincia}}</p>
+                    </div>
+                    <div class="col-2">
+                        <p >{{$item->clients->sum('prova_fattura_sum_tot')}}</p>
                     </div>
                     <div class="col-1">
                         <i class="fas fa-times text-red-200 hover:text-red-600 cursor-pointer" wire:click="remove({{$item->id}})"></i>
@@ -52,7 +55,8 @@
 
                 </div>
 
-                <div class="row justify-between my-1 align-items-center">
+                {{--<div class="row justify-between my-1 align-items-center pt-1" style="border-top: solid 1px white">
+                    <div class="col">{{$item->clients->sum('prova_fattura_sum_tot')}}</div>
                     <div class="col">fatturato</div>
                     <div class="col">fatturato</div>
                     <div class="col">fatturato</div>
@@ -64,8 +68,7 @@
                     <div class="col">fatturato</div>
                     <div class="col">fatturato</div>
                     <div class="col">fatturato</div>
-                    <div class="col">fatturato</div>
-                </div>
+                </div>--}}
 
             </div>
         @endforeach

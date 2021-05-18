@@ -31,7 +31,7 @@ class ClientInserisci extends Component
         'client.provincia' => 'required',
         'client.cap' => 'required',
         'client.tipo' => 'required',
-        'client.fonte' => 'required',
+        'client.marketing_id' => 'required',
         'client.mail' => 'mail',
         'client.datarecall' => 'string',
         'client.datanascita' => 'string',

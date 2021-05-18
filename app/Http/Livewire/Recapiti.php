@@ -45,7 +45,7 @@ class Recapiti extends Component
     public function render(RecapitoService $recapitoService)
     {
         return view('livewire.recapiti', [
-            'recapiti' => $recapitoService->recapiti()
+            'recapiti' => $recapitoService->recapitiConFatturato()
         ])->extends('inizio')->section('content');
     }
 }

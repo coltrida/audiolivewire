@@ -92,7 +92,9 @@ class Home extends Component
         $this->proveInCorso = $userService->proveInCorso();
     }
 
-    public function render(UserService $userService, ProductService $productService, ClientService $clientService, FilialeService $filialeService)
+    public function render(UserService $userService,
+                           ClientService $clientService,
+                           FilialeService $filialeService)
     {
         $parametri = [];
         $nomeVista = 'livewire.home.home-admin';
@@ -111,15 +113,14 @@ class Home extends Component
                 $nomeVista = 'livewire.home.home-admin';
                 $parametri = [
                     'audioprotesisti' => $userService->getAudioprotesisti(),
-                    'filiali' => $userService->getFiliali(),
+                    'filiali' => $filialeService->filiali(),
                     'amministrativi' => $userService->getAmministrazione(),
                 ];
             } elseif ($userService->isAudio()){
                 $nomeVista = 'livewire.home.home-audio';
                 $parametri = [
                     'budget' => $userService->getBudgetDelMese(Auth::id()),
-                    /*'proveInCorso' => $userService->proveInCorso(),
-                    'finalizzati' => $userService->finalizzatiDelMese(),*/
+
                     'appuntamentiOggi' => $userService->appuntamentiOggi(),
                     'appuntamentiDomani' => $userService->appuntamentiDomani(),
                     'compleanniOggi' => $clientService->compleanniOggi(),

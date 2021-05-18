@@ -57,7 +57,7 @@
                                             {{$prova->client->nome}} {{$prova->client->cognome}}
                                         </span>
                                     </div>
-                                    <div>{{$prova->client->indirizzo}} - {{$prova->client->citta}} - {{$prova->client->provincia}}</div>
+                                    <div style="font-size: 12px">{{$prova->client->indirizzo}} - {{$prova->client->citta}} - {{$prova->client->provincia}}</div>
                                     @foreach($prova->product as $product)
                                         <div class="row" >
                                             <div class="col">matricola: {{$product->matricola}}</div>

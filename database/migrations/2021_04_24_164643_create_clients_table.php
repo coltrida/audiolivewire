@@ -24,13 +24,13 @@ class CreateClientsTable extends Migration
             $table->string('provincia');
             $table->string('telefono');
             $table->string('tipo');
-            $table->string('fonte')->nullable();
             $table->string('mail')->nullable();
             $table->char('recall')->nullable();
             $table->date('datarecall')->nullable();
             $table->date('datanascita')->nullable();
             $table->integer('meseNascita')->nullable();
             $table->integer('giornoNascita')->nullable();
+            $table->bigInteger('marketing_id')->unsigned();
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('filiale_id')->unsigned();
             $table->bigInteger('recapito_id')->unsigned()->nullable();

@@ -4,6 +4,8 @@ namespace App\Http\Livewire;
 
 use App\Services\MarketingService;
 use Livewire\Component;
+use function array_push;
+use function dd;
 use function session;
 use function view;
 
@@ -33,7 +35,7 @@ class Marketing extends Component
     public function render(MarketingService $marketingService)
     {
         return view('livewire.marketing', [
-            'canali' => $marketingService->canali()
+            'canali' => $marketingService->canaliConFatturato()
         ])->extends('inizio')->section('content');
     }
 }

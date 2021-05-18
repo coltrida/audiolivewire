@@ -4,8 +4,11 @@
 namespace App\Services;
 
 
+use App\Models\Client;
 use App\Models\Filiale;
 use App\Models\FilialeUser;
+use App\Models\Prova;
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 use function dd;
 
@@ -13,12 +16,38 @@ class FilialeService
 {
     public function filiali()
     {
-        /*dd(Filiale::with(['audio' => function($q){
-            $q->with('provaFinalizzata');
+        return Filiale::with(['audio' => function($q){
+            $q->withSum('provaFinalizzata', 'tot');
+        }])->orderBy('nome')->get();
+    }
+
+    public function filialiConFatturato()
+    {
+        $annoAttuale = Carbon::now()->year;
+
+/*        dd(Filiale::with(['clients' => function($q){
+            $q->get()->groupBy('tipo');
+        }])->orderBy('nome')->get());
+
+        dd(Prova::get()->groupBy('mese_fine'));
+
+        dd(Filiale::with(['clients' => function($q){
+            $q->get()->groupBy('tipo');
+        }])->orderBy('nome')->get());
+
+        dd(Filiale::with(['clients' => function($q) use($annoAttuale){
+            $q->withSum('provaFattura', 'tot')->whereHas('provaFattura', function($z) use($annoAttuale) {
+                $z->where([['tot', '!=', null], ['anno_fine', $annoAttuale]]);
+            });
+        }], ['clients.provaFattura' => function($h){
+            $h->groupBy('mese_fine');
         }])->orderBy('nome')->get());*/
 
-        return Filiale::with(['audio' => function($q){
-            $q->with('provaFinalizzata');
+
+        return Filiale::with(['clients' => function($q) use($annoAttuale){
+            $q->withSum('provaFattura', 'tot')->whereHas('provaFattura', function($z) use($annoAttuale) {
+                $z->where([['tot', '!=', null], ['anno_fine', $annoAttuale]]);
+            });
         }])->orderBy('nome')->get();
     }
 

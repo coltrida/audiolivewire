@@ -56,7 +56,7 @@ class UserService
 
         return User::with(['filiale', 'provaInCorso', 'provaFinalizzata' => function($z) use($mese, $anno){
             $z->where([['mese_fine', $mese], ['anno_fine', $anno]]);
-                }, "budget"])
+                }, "budget:id,budgetAnno,$nomeMese as target"])
             ->withSum(['provaFinalizzata' => function($g) use($mese, $anno){
                 $g->where([['mese_fine', $mese], ['anno_fine', $anno]]);
                 }], 'tot')

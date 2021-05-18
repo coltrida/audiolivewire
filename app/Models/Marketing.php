@@ -10,4 +10,9 @@ class Marketing extends Model
     use HasFactory;
 
     protected $table = 'marketings';
+
+    public function clients()
+    {
+        return $this->hasMany(Client::class);
+    }
 }

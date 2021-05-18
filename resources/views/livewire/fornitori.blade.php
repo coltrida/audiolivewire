@@ -33,19 +33,19 @@
         @foreach($fornitori as $item)
             <div class="rounded border p-3 my-2" style="background-color: #124874; box-shadow: 2px 2px 4px #000000;">
                 <div class="row justify-between my-1 align-items-center">
-                    <div class="col">
+                    <div class="col-3">
                         <p class="font-bold text-lg">{{$item->nome}}</p>
                     </div>
                     <div class="col-3">
                         <p class="font-bold text-lg">{{$item->indirizzo}}</p>
                     </div>
-                    <div class="col">
+                    <div class="col-2">
                         <p class="font-bold text-lg">{{$item->telefono}}</p>
                     </div>
-                    <div class="col">
+                    <div class="col-1">
                         <p class="font-bold text-lg">{{$item->citta}}</p>
                     </div>
-                    <div class="col">
+                    <div class="col-1">
                         <p class="font-bold text-lg">{{$item->cap}}</p>
                     </div>
                     <div class="col-1">

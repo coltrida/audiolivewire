@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Services\FilialeService;
 use Livewire\Component;
+use function dd;
 use function session;
 use function view;
 
@@ -51,7 +52,7 @@ class Filiali extends Component
     public function render(FilialeService $filialeService)
     {
         return view('livewire.filiali', [
-            'filiali' => $filialeService->filiali()
+            'filialiFatturato' => $filialeService->filialiConFatturato()
         ])->extends('inizio')->section('content');
     }
 }

@@ -42,7 +42,7 @@
                         <p >costo annuale</p>
                     </div>
                     <div class="col">
-                        <p >fatturato</p>
+                        <p >fatturato: € {{$item->clients->sum('prova_fattura_sum_tot')}}</p>
                     </div>
                     <div class="col-1">
                         <i class="fas fa-times text-red-200 hover:text-red-600 cursor-pointer" wire:click="remove({{$item->id}})"></i>

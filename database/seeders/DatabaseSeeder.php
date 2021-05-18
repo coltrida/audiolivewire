@@ -233,7 +233,7 @@ class DatabaseSeeder extends Seeder
                 'provincia' => Str::upper(Str::random(2)),
                 'telefono' => '321615612',
                 'tipo' => Arr::random(['PC', 'CL', 'CLC']),
-                'fonte' => Arr::random(['LETTERA', 'SCREENING', 'GIORNALE']),
+                'marketing_id' => rand(1,3),
                 'user_id' => rand(2,3),
                 'filiale_id' => rand(1,2),
             ]);
