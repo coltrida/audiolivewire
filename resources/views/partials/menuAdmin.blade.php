@@ -126,11 +126,11 @@
         Statistiche
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-       {{-- <li><a class="dropdown-item" href="{{route('statistiche.vendite.mese.istogramma')}}">Vendite Mese Istogramma</a></li>
-        <li><a class="dropdown-item" href="{{route('statistiche.vendite.mese.linea')}}">Vendite Mese linea</a></li>
-        <li><a class="dropdown-item" href="{{route('statistiche.vendite.mese.torta')}}">Vendite Mese Torta</a></li>
-        <li><a class="dropdown-item" href="">Vendite Anno</a></li>
-        <li><a class="dropdown-item" href="#">Canali Mkt</a></li>
-        <li><a class="dropdown-item" href="#">Costi</a></li>--}}
+        <li><a class="dropdown-item" href="{{route('statistiche.audioprotesisti')}}">Audioprotesisti</a></li>
+        {{-- <li><a class="dropdown-item" href="{{route('statistiche.vendite.mese.linea')}}">Vendite Mese linea</a></li>
+         <li><a class="dropdown-item" href="{{route('statistiche.vendite.mese.torta')}}">Vendite Mese Torta</a></li>
+         <li><a class="dropdown-item" href="">Vendite Anno</a></li>
+         <li><a class="dropdown-item" href="#">Canali Mkt</a></li>
+         <li><a class="dropdown-item" href="#">Costi</a></li>--}}
     </ul>
 </li>

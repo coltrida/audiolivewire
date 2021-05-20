@@ -20,7 +20,7 @@
         Magazzini
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        @foreach($filiali as $filiale)
+        @foreach($filialiAudio as $filiale)
             <li><a class="dropdown-item" href="{{route('magazzinoFiliale.index',  $filiale->id)}}">{{$filiale->nome}}</a></li>
             <li>
                 <hr class="dropdown-divider">

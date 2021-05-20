@@ -5,11 +5,15 @@ namespace App\Services;
 
 
 use App\Models\Budget;
+use App\Models\Filiale;
+use App\Models\Prova;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use function array_push;
 use function config;
 use function dd;
+use function number_format;
 use function setlocale;
 use const LC_TIME;
 
@@ -64,6 +68,53 @@ class UserService
                 $q->where('stato', config('enum.statoAPA.prova'));
                 }])
             ->where('ruolo', config('enum.ruoli.audio'))->get();
+    }
+
+    public function getAudioprotesistiStatistiche()
+    {
+        $fatturati = [];
+        $meseAttuale = Carbon::now()->month;
+        $annoAttuale = Carbon::now()->year;
+        $audio = User::where('ruolo', config('enum.ruoli.audio'))->orderBy('name')->get();
+        $audio->each(function ($item, $key) use(&$fatturati, $meseAttuale, $annoAttuale) {
+            $vendite = [];
+            $budget = [];
+            $delta = [];
+
+            $budget[1] = number_format( ( (int)$item->budget->gennaio * (int)$item->budget->budgetAnno ) /100, 0, ',', '.' );
+            $budget[2] = number_format( ( (int)$item->budget->febbraio * (int)$item->budget->budgetAnno ) /100, 0, ',', '.' );
+            $budget[3] = number_format(( (int)$item->budget->marzo * (int)$item->budget->budgetAnno ) /100, 0, ',', '.' );
+            $budget[4] = number_format(( (int)$item->budget->aprile * (int)$item->budget->budgetAnno ) /100, 0, ',', '.' );
+            $budget[5] = number_format(( (int)$item->budget->maggio * (int)$item->budget->budgetAnno ) /100, 0, ',', '.' );
+            $budget[6] = number_format(( (int)$item->budget->giugno * (int)$item->budget->budgetAnno ) /100, 0, ',', '.' );
+            $budget[7] = number_format(( (int)$item->budget->luglio * (int)$item->budget->budgetAnno ) /100, 0, ',', '.' );
+            $budget[8] = number_format(( (int)$item->budget->agosto * (int)$item->budget->budgetAnno ) /100, 0, ',', '.' );
+            $budget[9] = number_format(( (int)$item->budget->settembre * (int)$item->budget->budgetAnno ) /100, 0, ',', '.' );
+            $budget[10] = number_format(( (int)$item->budget->ottobre * (int)$item->budget->budgetAnno ) /100, 0, ',', '.' );
+            $budget[11] = number_format(( (int)$item->budget->novembre * (int)$item->budget->budgetAnno ) /100, 0, ',', '.' );
+            $budget[12] = number_format(( (int)$item->budget->dicembre * (int)$item->budget->budgetAnno ) /100, 0, ',', '.' );
+
+            for($i = 1; $i <= $meseAttuale; $i++){
+                $vendite[$i] = number_format( Prova::where([
+                    ['stato', config('enum.statoAPA.fattura')],
+                    ['mese_fine', $i],
+                    ['anno_fine', $annoAttuale],
+                    ['user_id', $item->id],
+                ])->sum('tot'), 0, ',', '.' );
+                $delta[$i] = number_format( (float) (($vendite[$i] / $budget[$i]) - 1 ) * 100, 2, ',', '.');
+            }
+
+                array_push($fatturati, [
+                'nome' => $item->name,
+                'budgetAnno' => $item->budget->budgetAnno,
+                'vendite' => $vendite,
+                'budget' => $budget,
+                'delta' => $delta,
+            ]);
+        });
+
+        //dd($fatturati);
+        return $fatturati;
     }
 
     public function getAmministrazione()

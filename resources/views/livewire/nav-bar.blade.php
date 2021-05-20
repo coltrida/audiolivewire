@@ -35,7 +35,7 @@
 
                         @if(Auth::user()->isAdmin)
                             @include('partials.menuAdmin')
-                        @elseif(Auth::user()->isAudio)
+                        @elseif(Auth::user()->isAudio || Auth::user()->isAmministrazione)
                             @include('partials.menuAudio')
                         @endif
                     @else

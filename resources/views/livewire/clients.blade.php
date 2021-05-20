@@ -22,6 +22,6 @@
         <livewire:modalaudiogramma/>
         <livewire:modalddt/>
         <livewire:modalasl/>
-        <livewire:fattura/>
+        {{--<livewire:fattura/>--}}
     </div>
 </div>

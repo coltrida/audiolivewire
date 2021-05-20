@@ -96,11 +96,11 @@
                                         <div style="font-size: 12px">{{$prodotto->listino->nome}} - {{$prodotto->matricola}}</div>
                                     @endforeach
                                 </div>
-                                <div class="col-1">
+                                {{--<div class="col-1">
                                     @if($item->stato == config('enum.statoAPA.prova'))
                                         <i title="vendita" class="fas fa-check-square text-green-200 hover:text-green-600 cursor-pointer" wire:click="$emit('clientFattura', {{$item->id}})"></i>
                                     @endif
-                                </div>
+                                </div>--}}
                                 <div class="col-1">
                                     @if($item->stato == config('enum.statoAPA.prova'))
                                     <i title="reso" class="fas fa-times text-red-200 hover:text-red-600 cursor-pointer" wire:click="remove({{$item->id}})"></i>

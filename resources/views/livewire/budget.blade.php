@@ -53,62 +53,62 @@
         <div class="row justify-between my-1 align-items-start">
             <div class="col-1">
                 <p class="font-bold text-lg">gennaio</p>
-                <input wire:model="gennaio" type="number" size="2" style="color: black; width: 3em" class="w-full rounded border shadow">
+                <input wire:model="gennaio" type="number"style="color: black; width: 4em" class="w-full rounded border shadow">
                 <div>{{$getGennaio}}</div>
             </div>
             <div class="col-1">
                 <p class="font-bold text-lg">febbraio</p>
-                <input wire:model="febbraio" type="number" size="2" style="color: black; width: 3em" class="w-full rounded border shadow">
+                <input wire:model="febbraio" type="number" style="color: black; width: 4em" class="w-full rounded border shadow">
                 <div>{{$getFebbraio}}</div>
             </div>
             <div class="col-1">
                 <p class="font-bold text-lg">marzo</p>
-                <input wire:model="marzo" type="number" style="color: black; width: 3em" class="w-full rounded border shadow">
+                <input wire:model="marzo" type="number" style="color: black; width: 4em" class="w-full rounded border shadow">
                 <div>{{$getMarzo}}</div>
             </div>
             <div class="col-1">
                 <p class="font-bold text-lg">aprile</p>
-                <input wire:model="aprile" type="number" style="color: black; width: 3em" class="w-full rounded border shadow">
+                <input wire:model="aprile" type="number" style="color: black; width: 4em" class="w-full rounded border shadow">
                 <div>{{$getAprile}}</div>
             </div>
             <div class="col-1">
                 <p class="font-bold text-lg">maggio</p>
-                <input wire:model="maggio" type="number" style="color: black; width: 3em" class="w-full rounded border shadow">
+                <input wire:model="maggio" type="number" style="color: black; width: 4em" class="w-full rounded border shadow">
                 <div>{{$getMaggio}}</div>
             </div>
             <div class="col-1">
                 <p class="font-bold text-lg">giugno</p>
-                <input wire:model="giugno" type="number" style="color: black; width: 3em" class="w-full rounded border shadow">
+                <input wire:model="giugno" type="number" style="color: black; width: 4em" class="w-full rounded border shadow">
                 <div>{{$getGiugno}}</div>
             </div>
             <div class="col-1">
                 <p class="font-bold text-lg">luglio</p>
-                <input wire:model="luglio" type="number" style="color: black; width: 3em" class="w-full rounded border shadow">
+                <input wire:model="luglio" type="number" style="color: black; width: 4em" class="w-full rounded border shadow">
                 <div>{{$getLuglio}}</div>
             </div>
             <div class="col-1">
                 <p class="font-bold text-lg">agosto</p>
-                <input wire:model="agosto" type="number" style="color: black; width: 3em" class="w-full rounded border shadow">
+                <input wire:model="agosto" type="number" style="color: black; width: 4em" class="w-full rounded border shadow">
                 <div>{{$getAgosto}}</div>
             </div>
             <div class="col-1">
                 <p class="font-bold text-lg">settembre</p>
-                <input wire:model="settembre" type="number" style="color: black; width: 3em" class="w-full rounded border shadow">
+                <input wire:model="settembre" type="number" style="color: black; width: 4em" class="w-full rounded border shadow">
                 <div>{{$getSettembre}}</div>
             </div>
             <div class="col-1">
                 <p class="font-bold text-lg">ottobre</p>
-                <input wire:model="ottobre" type="number" style="color: black; width: 3em" class="w-full rounded border shadow">
+                <input wire:model="ottobre" type="number" style="color: black; width: 4em" class="w-full rounded border shadow">
                 <div>{{$getOttobre}}</div>
             </div>
             <div class="col-1">
                 <p class="font-bold text-lg">novembre</p>
-                <input wire:model="novembre" type="number" style="color: black; width: 3em" class="w-full rounded border shadow">
+                <input wire:model="novembre" type="number" style="color: black; width: 4em" class="w-full rounded border shadow">
                 <div>{{$getNovembre}}</div>
             </div>
             <div class="col-1">
                 <p class="font-bold text-lg">dicembre</p>
-                <input wire:model="dicembre" type="number" style="color: black; width: 3em" class="w-full rounded border shadow">
+                <input wire:model="dicembre" type="number" style="color: black; width: 4em" class="w-full rounded border shadow">
                 <div>{{$getDicembre}}</div>
             </div>
         </div>

@@ -16,6 +16,7 @@ use App\Http\Livewire\Magazzino;
 use App\Http\Livewire\MagazzinoFiliale;
 use App\Http\Livewire\Marketing;
 use App\Http\Livewire\Recapiti;
+use App\Http\Livewire\StatisticheAudio;
 use App\Http\Livewire\TempiRecall;
 use Illuminate\Support\Facades\Route;
 
@@ -41,4 +42,5 @@ Route::group(['middleware' => ['auth','verifyIsAdmin'], 'prefix' => 'admin'], fu
     Route::get('/user/associa/filiale', AssociaFiliale::class)->name('user.associaFiliale');
     Route::get('/imposta/recall', TempiRecall::class)->name('imposta.recall');
     Route::get('/imposta/budget', Budget::class)->name('user.budget');
+    Route::get('/statistiche/audioprotesisti', StatisticheAudio::class)->name('statistiche.audioprotesisti');
 });

@@ -5,12 +5,15 @@ namespace Database\Seeders;
 use App\Models\Budget;
 use App\Models\Client;
 use App\Models\Ddt;
+use App\Models\Fattura;
 use App\Models\Filiale;
 use App\Models\FilialeUser;
 use App\Models\Fornitore;
 use App\Models\Listino;
 use App\Models\Marketing;
 use App\Models\Product;
+use App\Models\ProductProva;
+use App\Models\Prova;
 use App\Models\Recapito;
 use App\Models\Tipologia;
 use App\Models\User;
@@ -49,6 +52,14 @@ class DatabaseSeeder extends Seeder
                 'telefono' => '08554545',
                 'cap' => '584652',
                 'provincia' => 'LU',
+            ],
+            [
+                'nome' => 'AREZZO',
+                'indirizzo' => 'VIA VAI 3',
+                'citta' => 'AREZZO',
+                'telefono' => '08554545',
+                'cap' => '584652',
+                'provincia' => 'AR',
             ]
         ]);
 
@@ -77,7 +88,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Cecchi Massimiliano',
                 'email' => 'audio2@audio.it',
                 'ruolo' => 'audio',
-                'budget_id' => null,
+                'budget_id' => 2,
                 'email_verified_at' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -87,7 +98,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'audio3',
                 'email' => 'audio3@audio.it',
                 'ruolo' => 'audio',
-                'budget_id' => null,
+                'budget_id' => 3,
                 'email_verified_at' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -202,14 +213,10 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'filiale_id' => 2,
-                'user_id' => 2,
-            ],
-            [
-                'filiale_id' => 2,
                 'user_id' => 3,
             ],
             [
-                'filiale_id' => 1,
+                'filiale_id' => 3,
                 'user_id' => 4,
             ],
             [
@@ -224,8 +231,8 @@ class DatabaseSeeder extends Seeder
 
         for ($i = 1; $i <5; $i++){
             Client::create([
-                'nome' => 'CLIENTE'.$i,
-                'cognome' => 'COGNOME'.$i,
+                'nome' => 'CLIENTE'.$i.'21',
+                'cognome' => 'COGNOME'.$i.'21',
                 'codfisc' => Str::random(11),
                 'indirizzo' => Str::upper(Str::random(20)),
                 'cap' => rand(1,9).rand(1,9).rand(1,9).rand(1,9).rand(1,9),
@@ -234,12 +241,47 @@ class DatabaseSeeder extends Seeder
                 'telefono' => '321615612',
                 'tipo' => Arr::random(['PC', 'CL', 'CLC']),
                 'marketing_id' => rand(1,3),
-                'user_id' => rand(2,3),
-                'filiale_id' => rand(1,2),
+                'user_id' => 2,
+                'filiale_id' => 1,
             ]);
         }
 
-        Budget::create([
+        for ($i = 1; $i <5; $i++){
+            Client::create([
+                'nome' => 'CLIENTE'.$i.'22',
+                'cognome' => 'COGNOME'.$i.'22',
+                'codfisc' => Str::random(11),
+                'indirizzo' => Str::upper(Str::random(20)),
+                'cap' => rand(1,9).rand(1,9).rand(1,9).rand(1,9).rand(1,9),
+                'citta' => Str::upper(Str::random(10)),
+                'provincia' => Str::upper(Str::random(2)),
+                'telefono' => '321615612',
+                'tipo' => Arr::random(['PC', 'CL', 'CLC']),
+                'marketing_id' => rand(1,3),
+                'user_id' => 3,
+                'filiale_id' => 2,
+            ]);
+        }
+
+        for ($i = 1; $i <5; $i++){
+            Client::create([
+                'nome' => 'CLIENTE'.$i.'23',
+                'cognome' => 'COGNOME'.$i.'23',
+                'codfisc' => Str::random(11),
+                'indirizzo' => Str::upper(Str::random(20)),
+                'cap' => rand(1,9).rand(1,9).rand(1,9).rand(1,9).rand(1,9),
+                'citta' => Str::upper(Str::random(10)),
+                'provincia' => Str::upper(Str::random(2)),
+                'telefono' => '321615612',
+                'tipo' => Arr::random(['PC', 'CL', 'CLC']),
+                'marketing_id' => rand(1,3),
+                'user_id' => 4,
+                'filiale_id' => 3,
+            ]);
+        }
+
+        Budget::insert([
+            [
             'budgetAnno' => 100000,
             'stipendio' => 1000,
             'provvigione' => 10,
@@ -255,6 +297,41 @@ class DatabaseSeeder extends Seeder
             'ottobre' => 8,
             'novembre' => 8,
             'dicembre' => 8,
+            ],
+            [
+                'budgetAnno' => 120000,
+                'stipendio' => 1200,
+                'provvigione' => 10,
+                'gennaio' => 8,
+                'febbraio' => 10,
+                'marzo' => 8,
+                'aprile' => 10,
+                'maggio' => 8,
+                'giugno' => 8,
+                'luglio' => 8,
+                'agosto' => 8,
+                'settembre' => 8,
+                'ottobre' => 8,
+                'novembre' => 8,
+                'dicembre' => 8,
+            ],
+            [
+                'budgetAnno' => 110000,
+                'stipendio' => 1100,
+                'provvigione' => 10,
+                'gennaio' => 8,
+                'febbraio' => 10,
+                'marzo' => 8,
+                'aprile' => 10,
+                'maggio' => 8,
+                'giugno' => 8,
+                'luglio' => 8,
+                'agosto' => 8,
+                'settembre' => 8,
+                'ottobre' => 8,
+                'novembre' => 8,
+                'dicembre' => 8,
+            ],
         ]);
 
         Product::insert([
@@ -264,6 +341,9 @@ class DatabaseSeeder extends Seeder
                 'filiale_id' => 2,
                 'listino_id' => 4,
                 'fornitore_id' => 3,
+                'fattura_id' => null,
+                'user_id' => null,
+                'client_id' => null,
                 'ddt_id' => 1,
                 'created_at' => Carbon::make('2021-03-02'),
                 'updated_at' => Carbon::make('2021-03-02'),
@@ -274,6 +354,9 @@ class DatabaseSeeder extends Seeder
                 'filiale_id' => 2,
                 'listino_id' => 4,
                 'fornitore_id' => 3,
+                'fattura_id' => null,
+                'user_id' => null,
+                'client_id' => null,
                 'ddt_id' => 1,
                 'created_at' => Carbon::make('2021-03-02'),
                 'updated_at' => Carbon::make('2021-03-02'),
@@ -284,6 +367,9 @@ class DatabaseSeeder extends Seeder
                 'filiale_id' => 2,
                 'listino_id' => 4,
                 'fornitore_id' => 3,
+                'fattura_id' => null,
+                'user_id' => null,
+                'client_id' => null,
                 'ddt_id' => 1,
                 'created_at' => Carbon::make('2021-03-20'),
                 'updated_at' => Carbon::make('2021-03-20'),
@@ -294,6 +380,9 @@ class DatabaseSeeder extends Seeder
                 'filiale_id' => 2,
                 'listino_id' => 4,
                 'fornitore_id' => 3,
+                'fattura_id' => null,
+                'user_id' => null,
+                'client_id' => null,
                 'ddt_id' => 1,
                 'created_at' => Carbon::make('2021-03-20'),
                 'updated_at' => Carbon::make('2021-03-20'),
@@ -301,40 +390,104 @@ class DatabaseSeeder extends Seeder
 
             [
                 'matricola' => 'sadf',
-                'stato' => config('enum.statoAPA.filiale'),
+                'stato' => config('enum.statoAPA.fattura'),
                 'filiale_id' => 1,
                 'listino_id' => 4,
                 'fornitore_id' => 3,
+                'fattura_id' => 1,
+                'user_id' => 2,
+                'client_id' => 4,
                 'ddt_id' => 2,
                 'created_at' => Carbon::make('2021-03-02'),
                 'updated_at' => Carbon::make('2021-03-02'),
             ],
             [
                 'matricola' => 'sghggfadf',
-                'stato' => config('enum.statoAPA.filiale'),
+                'stato' => config('enum.statoAPA.fattura'),
                 'filiale_id' => 1,
                 'listino_id' => 4,
                 'fornitore_id' => 3,
+                'fattura_id' => 1,
+                'user_id' => 2,
+                'client_id' => 4,
                 'ddt_id' => 2,
                 'created_at' => Carbon::make('2021-03-02'),
                 'updated_at' => Carbon::make('2021-03-02'),
             ],
             [
                 'matricola' => 'jjjjj',
-                'stato' => config('enum.statoAPA.filiale'),
+                'stato' => config('enum.statoAPA.fattura'),
                 'filiale_id' => 1,
                 'listino_id' => 4,
                 'fornitore_id' => 3,
+                'fattura_id' => 2,
+                'user_id' => 2,
+                'client_id' => 3,
                 'ddt_id' => 2,
                 'created_at' => Carbon::make('2021-03-20'),
                 'updated_at' => Carbon::make('2021-03-20'),
             ],
             [
                 'matricola' => 'ssdghrrr',
+                'stato' => config('enum.statoAPA.fattura'),
+                'filiale_id' => 1,
+                'listino_id' => 4,
+                'fornitore_id' => 3,
+                'fattura_id' => 2,
+                'user_id' => 2,
+                'client_id' => 3,
+                'ddt_id' => 2,
+                'created_at' => Carbon::make('2021-03-20'),
+                'updated_at' => Carbon::make('2021-03-20'),
+            ],
+            [
+                'matricola' => 'jjhggfhdfgjjj',
+                'stato' => config('enum.statoAPA.fattura'),
+                'filiale_id' => 1,
+                'listino_id' => 4,
+                'fornitore_id' => 3,
+                'fattura_id' => 3,
+                'user_id' => 2,
+                'client_id' => 3,
+                'ddt_id' => 2,
+                'created_at' => Carbon::make('2021-03-20'),
+                'updated_at' => Carbon::make('2021-03-20'),
+            ],
+            [
+                'matricola' => 'ssdjhkhjkkghrrr',
+                'stato' => config('enum.statoAPA.fattura'),
+                'filiale_id' => 1,
+                'listino_id' => 4,
+                'fornitore_id' => 3,
+                'fattura_id' => 3,
+                'user_id' => 2,
+                'client_id' => 3,
+                'ddt_id' => 2,
+                'created_at' => Carbon::make('2021-03-20'),
+                'updated_at' => Carbon::make('2021-03-20'),
+            ],
+            [
+                'matricola' => 'jj555jjj',
                 'stato' => config('enum.statoAPA.filiale'),
                 'filiale_id' => 1,
                 'listino_id' => 4,
                 'fornitore_id' => 3,
+                'fattura_id' => null,
+                'user_id' => null,
+                'client_id' => null,
+                'ddt_id' => 2,
+                'created_at' => Carbon::make('2021-03-20'),
+                'updated_at' => Carbon::make('2021-03-20'),
+            ],
+            [
+                'matricola' => 'ffhghrrr',
+                'stato' => config('enum.statoAPA.filiale'),
+                'filiale_id' => 1,
+                'listino_id' => 4,
+                'fornitore_id' => 3,
+                'fattura_id' => null,
+                'user_id' => null,
+                'client_id' => null,
                 'ddt_id' => 2,
                 'created_at' => Carbon::make('2021-03-20'),
                 'updated_at' => Carbon::make('2021-03-20'),
@@ -380,6 +533,105 @@ class DatabaseSeeder extends Seeder
             [
                 'nome' => 'DEC',
                 'recall' => null
+            ],
+        ]);
+
+        Prova::insert([
+            [
+                'user_id' => 2,
+                'client_id' => 4,
+                'filiale_id' => 1,
+                'tot' => 2400,
+                'stato' => config('enum.statoAPA.fattura'),
+                'inizio_prova' => '2021-05-19',
+                'fine_prova' => '2021-05-19',
+                'mese_inizio' => 5,
+                'mese_fine' => 5,
+                'anno_inizio' => 2021,
+                'anno_fine' => 2021,
+            ],
+            [
+                'user_id' => 2,
+                'client_id' => 3,
+                'filiale_id' => 1,
+                'tot' => 4000,
+                'stato' => config('enum.statoAPA.fattura'),
+                'inizio_prova' => '2021-05-19',
+                'fine_prova' => '2021-05-19',
+                'mese_inizio' => 5,
+                'mese_fine' => 5,
+                'anno_inizio' => 2021,
+                'anno_fine' => 2021,
+            ],
+            [
+                'user_id' => 2,
+                'client_id' => 3,
+                'filiale_id' => 1,
+                'tot' => 4000,
+                'stato' => config('enum.statoAPA.fattura'),
+                'inizio_prova' => '2021-04-19',
+                'fine_prova' => '2021-04-19',
+                'mese_inizio' => 4,
+                'mese_fine' => 4,
+                'anno_inizio' => 2021,
+                'anno_fine' => 2021,
+            ],
+        ]);
+
+        ProductProva::insert([
+            [
+                'prova_id' => 1,
+                'product_id' => 5,
+                'orecchio' => 'sx',
+                'prezzo' => 1200,
+            ],
+            [
+                'prova_id' => 1,
+                'product_id' => 6,
+                'orecchio' => 'dx',
+                'prezzo' => 1200,
+            ],
+            [
+                'prova_id' => 2,
+                'product_id' => 7,
+                'orecchio' => 'sx',
+                'prezzo' => 2000,
+            ],
+            [
+                'prova_id' => 2,
+                'product_id' => 8,
+                'orecchio' => 'dx',
+                'prezzo' => 2000,
+            ],
+            [
+                'prova_id' => 3,
+                'product_id' => 9,
+                'orecchio' => 'sx',
+                'prezzo' => 2000,
+            ],
+            [
+                'prova_id' => 3,
+                'product_id' => 10,
+                'orecchio' => 'dx',
+                'prezzo' => 2000,
+            ],
+        ]);
+
+        Fattura::insert([
+            [
+                'prova_id' => 1,
+                'data_fattura' => '2021-05-19',
+                'tot_fattura' => 2400,
+            ],
+            [
+                'prova_id' => 2,
+                'data_fattura' => '2021-05-19',
+                'tot_fattura' => 4000,
+            ],
+            [
+                'prova_id' => 3,
+                'data_fattura' => '2021-04-19',
+                'tot_fattura' => 4000,
             ],
         ]);
 

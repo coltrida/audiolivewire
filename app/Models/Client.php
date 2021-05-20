@@ -60,6 +60,7 @@ class Client extends Model
         return $this->hasMany(Prova::class)->where('stato', config('enum.statoAPA.fattura'));
     }
 
+
     public function provaDdt()
     {
         return $this->hasMany(Prova::class)->where('stato', config('enum.statoAPA.ddt'));

@@ -19,21 +19,21 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Name :</label>
-                        <input type="text" wire:model="name" class="form-control">
+                        <input type="text" wire:model.defer="name" class="form-control">
                         @error('name') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Email :</label>
-                        <input type="text" wire:model="email" class="form-control">
+                        <input type="text" wire:model.defer="email" class="form-control">
                         @error('email') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Password :</label>
-                        <input type="password" wire:model="password" class="form-control">
+                        <input type="password" wire:model.defer="password" class="form-control">
                         @error('password') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
                 </div>
@@ -51,14 +51,14 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Email :</label>
-                        <input type="text" wire:model="email" class="form-control">
+                        <input type="text" wire:model.defer="email" class="form-control">
                         @error('email') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Password :</label>
-                        <input type="password" wire:model="password" class="form-control">
+                        <input type="password" wire:model.defer="password" class="form-control">
                         @error('password') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
                 </div>

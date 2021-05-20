@@ -29,46 +29,82 @@
             <div class="rounded border p-3 my-2" style="background-color: #124874; box-shadow: 2px 2px 4px #000000;">
                 <div class="row justify-between my-1 align-items-center">
                     <div class="col-2">
-                        <p class="font-bold">{{$item->nome}}</p>
+                        <p class="font-bold">{{$item['nome']}}</p>
                     </div>
                     <div class="col-2">
-                        <p >{{$item->indirizzo}}</p>
+                        <p >{{$item['indirizzo']}}</p>
                     </div>
                     <div class="col-1">
-                        <p >{{$item->telefono}}</p>
+                        <p >{{$item['telefono']}}</p>
                     </div>
-                    <div class="col-2">
-                        <p >{{$item->citta}}</p>
-                    </div>
-                    <div class="col-1">
-                        <p >{{$item->cap}}</p>
+                    <div class="col-3">
+                        <p >{{$item['citta']}}</p>
                     </div>
                     <div class="col-1">
-                        <p >{{$item->provincia}}</p>
-                    </div>
-                    <div class="col-2">
-                        <p >{{$item->clients->sum('prova_fattura_sum_tot')}}</p>
+                        <p >{{$item['cap']}}</p>
                     </div>
                     <div class="col-1">
-                        <i class="fas fa-times text-red-200 hover:text-red-600 cursor-pointer" wire:click="remove({{$item->id}})"></i>
+                        <p >{{$item['provincia']}}</p>
+                    </div>
+                    <div class="col-1">
+                        <i class="fas fa-times text-red-200 hover:text-red-600 cursor-pointer" wire:click="remove({{$item['id']}})"></i>
                     </div>
 
                 </div>
 
-                {{--<div class="row justify-between my-1 align-items-center pt-1" style="border-top: solid 1px white">
-                    <div class="col">{{$item->clients->sum('prova_fattura_sum_tot')}}</div>
-                    <div class="col">fatturato</div>
-                    <div class="col">fatturato</div>
-                    <div class="col">fatturato</div>
-                    <div class="col">fatturato</div>
-                    <div class="col">fatturato</div>
-                    <div class="col">fatturato</div>
-                    <div class="col">fatturato</div>
-                    <div class="col">fatturato</div>
-                    <div class="col">fatturato</div>
-                    <div class="col">fatturato</div>
-                    <div class="col">fatturato</div>
-                </div>--}}
+                <div class="row justify-between my-1 align-items-center pt-1" style="border-top: solid 1px white">
+                    {{--@foreach($item['vendite'] as $fatturato)
+                        <div class="col">{{$fatturato}}</div>
+                    @endforeach--}}
+                    <div class="col">
+                        <div>Gennaio</div>
+                        <div>{{isset($item['vendite'][1]) ? $item['vendite'][1] : 0}}</div>
+                    </div>
+                    <div class="col">
+                        <div>Febbraio</div>
+                        <div>{{isset($item['vendite'][2]) ? $item['vendite'][2] : 0}}</div>
+                    </div>
+                    <div class="col">
+                        <div>Marzo</div>
+                        <div>{{isset($item['vendite'][3]) ? $item['vendite'][3] : 0}}</div>
+                    </div>
+                    <div class="col">
+                        <div>Aprile</div>
+                        <div>{{isset($item['vendite'][4]) ? $item['vendite'][4] : 0}}</div>
+                    </div>
+                    <div class="col">
+                        <div>Maggio</div>
+                        <div>{{isset($item['vendite'][5]) ? $item['vendite'][5] : 0}}</div>
+                    </div>
+                    <div class="col">
+                        <div>Giugno</div>
+                        <div>{{isset($item['vendite'][6]) ? $item['vendite'][6] : 0}}</div>
+                    </div>
+                    <div class="col">
+                        <div>Luglio</div>
+                        <div>{{isset($item['vendite'][7]) ? $item['vendite'][7] : 0}}</div>
+                    </div>
+                    <div class="col">
+                        <div>Agosto</div>
+                        <div>{{isset($item['vendite'][8]) ? $item['vendite'][8] : 0}}</div>
+                    </div>
+                    <div class="col">
+                        <div>Settembre</div>
+                        <div>{{isset($item['vendite'][9]) ? $item['vendite'][9] : 0}}</div>
+                    </div>
+                    <div class="col">
+                        <div>Ottobre</div>
+                        <div>{{isset($item['vendite'][10]) ? $item['vendite'][10] : 0}}</div>
+                    </div>
+                    <div class="col">
+                        <div>Novembre</div>
+                        <div>{{isset($item['vendite'][11]) ? $item['vendite'][11] : 0}}</div>
+                    </div>
+                    <div class="col">
+                        <div>Dicembre</div>
+                        <div>{{isset($item['vendite'][12]) ? $item['vendite'][12] : 0}}</div>
+                    </div>
+                </div>
 
             </div>
         @endforeach

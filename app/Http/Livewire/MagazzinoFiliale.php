@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Services\FilialeService;
 use App\Services\FornitoreService;
 use App\Services\ProductService;
+use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 use function config;
 use function dd;
@@ -27,6 +28,10 @@ class MagazzinoFiliale extends Component
 
     public function mount($idFiliale, ProductService $productService)
     {
+        if(Gate::denies('access-filiale', $idFiliale)){
+            abort(401, 'Non autorizzato');
+        }
+
         $this->idFiliale = $idFiliale;
         $this->aggiornaMagazzino($productService);
     }
