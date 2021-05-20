@@ -17,6 +17,6 @@ class Clients extends Component
 
     public function render()
     {
-        return view('livewire.clients')->extends('inizio')->section('content');
+        return view('livewire.client.clients')->extends('inizio')->section('content');
     }
 }

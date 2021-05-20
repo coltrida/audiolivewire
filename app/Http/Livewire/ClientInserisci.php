@@ -84,6 +84,6 @@ class ClientInserisci extends Component
 
     public function render()
     {
-        return view('livewire.client-inserisci')->extends('inizio')->section('content');
+        return view('livewire.client.client-inserisci')->extends('inizio')->section('content');
     }
 }

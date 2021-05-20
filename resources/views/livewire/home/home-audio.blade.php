@@ -144,6 +144,22 @@
                         </div>
                     </div>
                 @endforeach
+                {{--<p class="font-bold text-lg ">Apparecchi sotto scorta</p>
+                @foreach($appuntamentiDomani as $appuntamento)
+                    <div class="rounded border p-1 my-2" style="background-color: #537429; box-shadow: 2px 2px 4px #000000;">
+                        <div class="row justify-between my-1 align-items-center">
+                            <div class="col">
+                                <div class="font-bold">{{$appuntamento->client->nome}} {{$appuntamento->client->cognome}}</div>
+                                <div class="text-right">
+                                    <div>{{$appuntamento->orario}}</div>
+                                    @if($appuntamento->filiale_id)<div>{{$appuntamento->filiale->nome}}</div>@endif
+                                    @if($appuntamento->recapito_id)<div>{{$appuntamento->recapito->nome}}</div>@endif
+                                    <div>{{$appuntamento->nota}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach--}}
             </div>
         </div>
     </div>

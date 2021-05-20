@@ -9,8 +9,15 @@
                                 <div class="col">
                                     <div class="row">
                                         <div class="col">{{$item['nome']}}</div>
-                                        <div class="col">Bgt € {{number_format($item['budgetAnno'], 0, ',', '.')}}</div>
+                                        <div class="col">Bgt Anno € {{number_format($item['budgetAnno'], 0, ',', '.')}}</div>
+                                        <div class="col">Bgt ad Oggi € {{number_format(array_sum($item['budgetAdOggi']) * 1000, 0, ',', '.')}}</div>
                                         <div class="col">Fatturato € {{number_format(array_sum($item['vendite']) * 1000, 0, ',', '.')}}</div>
+                                        <div class="col">
+                                            <span class="badge {{number_format( (float)(( array_sum($item['vendite']) * 1000 / array_sum($item['budgetAdOggi']) * 1000) - 1 ) * 100, 2, ',', '.') > 0 ? 'bg-success' : 'bg-danger'}}">
+                                                {{number_format((((float) number_format((float) array_sum($item['vendite']) , 2, ',', '.' )
+                                                    / (float) number_format((float) array_sum($item['budgetAdOggi']) , 2, ',', '.' )) - 1) * 100, 0, ',', '.')}} %
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

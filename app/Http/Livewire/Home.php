@@ -94,6 +94,7 @@ class Home extends Component
 
     public function render(UserService $userService,
                            ClientService $clientService,
+                           ProductService $productService,
                            FilialeService $filialeService)
     {
         $parametri = [];
@@ -124,6 +125,7 @@ class Home extends Component
                     'appuntamentiOggi' => $userService->appuntamentiOggi(),
                     'appuntamentiDomani' => $userService->appuntamentiDomani(),
                     'compleanniOggi' => $clientService->compleanniOggi(),
+                    /*'apaSottoScorta' => $productService->prodottiSottoScorta(),*/
                 ];
             } elseif ($userService->isAmministrazione()){
                 $nomeVista = 'livewire.home.home-amministrazione';

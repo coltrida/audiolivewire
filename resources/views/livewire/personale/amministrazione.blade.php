@@ -12,15 +12,15 @@
 
         <form class="my-4" wire:submit.prevent="addAmministrazione">
             <div class="flex">
-                <input wire:model.lazy="nome" type="text" style="color: black" class="w-full rounded border shadow p-2 mr-2 my-2" placeholder="Nome">
-                <input wire:model.lazy="email" type="text" style="color: black" class="w-full rounded border shadow p-2 mr-2 my-2" placeholder="email">
+                <input wire:model.defer="nome" type="text" style="color: black" class="w-full rounded border shadow p-2 mr-2 my-2" placeholder="Nome">
+                <input wire:model.defer="email" type="text" style="color: black" class="w-full rounded border shadow p-2 mr-2 my-2" placeholder="email">
 
-                <select wire:model="id_filiale" class="w-full rounded border shadow p-2 mr-2 my-2" style="color: black" aria-label="Default select example">
+                {{--<select wire:model="id_filiale" class="w-full rounded border shadow p-2 mr-2 my-2" style="color: black" aria-label="Default select example">
                     <option selected>Seleziona Filiale</option>
                     @foreach($filiali as $item)
                         <option value="{{$item->id}}">{{$item->nome}}</option>
                     @endforeach
-                </select>
+                </select>--}}
             </div>
             <div class="py-2">
                 <button type="submit" class="btn btn-success">Aggiungi</button>

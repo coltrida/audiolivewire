@@ -48,7 +48,7 @@ class FatturaService
             $q->with(['ddt', 'product' => function($z){
                 $z->with('listino');
             }]);
-        }])->find($id)->provaFattura;
+        }])->find($id)->provaDdt;
     }
 
     public function creaPdf($fattura)

@@ -67,6 +67,6 @@ class LoginRegister extends Component
 
     public function render()
     {
-        return view('livewire.login-register')->extends('inizio')->section('content');
+        return view('livewire.login.login-register')->extends('inizio')->section('content');
     }
 }

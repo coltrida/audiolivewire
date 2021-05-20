@@ -98,7 +98,7 @@ class MagazzinoFiliale extends Component
 
     public function render(FornitoreService $fornitoreService, FilialeService $filialeService)
     {
-        return view('livewire.magazzino-filiale', [
+        return view('livewire.magazzino.magazzino-filiale', [
             'prodottiRichiesti' => $this->prodottiRichiesti,
             'prodottiInFiliale' => $this->prodottiInFiliale,
             'prodottiInArrivo' => $this->prodottiInArrivo,

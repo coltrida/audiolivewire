@@ -54,7 +54,7 @@ class Listino extends Component
 
     public function render(ListinoService $listinoService, FornitoreService $fornitoreService)
     {
-        return view('livewire.listino', [
+        return view('livewire.listino.listino', [
             'listino' => $listinoService->listino($this->ricerca),
             'fornitori' => $fornitoreService->fornitori()
         ])->extends('inizio')->section('content');

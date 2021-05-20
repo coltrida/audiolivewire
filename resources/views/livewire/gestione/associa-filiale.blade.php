@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" xmlns:wire="http://www.w3.org/1999/xhtml">
     <div class="row">
         <button wire:click="associa()" {{$filialeSel_id && $personale ? '' : 'disabled'}} class="btn btn-success">ASSOCIA</button>
     </div>

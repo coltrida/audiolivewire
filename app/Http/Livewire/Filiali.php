@@ -51,7 +51,7 @@ class Filiali extends Component
 
     public function render(FilialeService $filialeService)
     {
-        return view('livewire.filiali', [
+        return view('livewire.strutture.filiali', [
             'filialiFatturato' => $filialeService->fatturatiMese()
         ])->extends('inizio')->section('content');
     }

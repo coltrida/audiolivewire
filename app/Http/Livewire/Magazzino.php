@@ -61,7 +61,7 @@ class Magazzino extends Component
                            FilialeService $filialeService,
                            UserService $userService)
     {
-        return view('livewire.magazzino', [
+        return view('livewire.magazzino.magazzino', [
             'products' => $productService->products($this->idFiliale, $this->ricerca),
             'fornitori' => $fornitoreService->fornitori(),
             'listino' => $this->idFornitore ? $fornitoreService->listinoFromFornitore($this->idFornitore) : [],

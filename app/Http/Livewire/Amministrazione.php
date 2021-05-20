@@ -13,14 +13,14 @@ class Amministrazione extends Component
 {
     public $nome;
     public $email;
-    public $id_filiale;
+    /*public $id_filiale;*/
 
     public function addAmministrazione(UserService $userService)
     {
         $reques = [
             'nome' => $this->nome,
             'email' => $this->email,
-            'id_filiale' => $this->id_filiale,
+            /*'id_filiale' => $this->id_filiale,*/
             'ruolo' => config('enum.ruoli.segreteria'),
         ];
         if(!$userService->inserisci($reques)){
@@ -30,7 +30,7 @@ class Amministrazione extends Component
         }
         $this->nome = '';
         $this->email = '';
-        $this->id_filiale = '';
+       /* $this->id_filiale = '';*/
     }
 
     public function remove($id, UserService $userService)
@@ -44,7 +44,7 @@ class Amministrazione extends Component
 
     public function render(UserService $userService, FilialeService $filialeService)
     {
-        return view('livewire.amministrazione', [
+        return view('livewire.personale.amministrazione', [
             'amministrazione' => $userService->getAmministrazione(),
             'filiali' => $filialeService->filiali()
         ])->extends('inizio')->section('content');

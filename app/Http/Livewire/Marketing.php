@@ -34,7 +34,7 @@ class Marketing extends Component
 
     public function render(MarketingService $marketingService)
     {
-        return view('livewire.marketing', [
+        return view('livewire.marketing.marketing', [
             'canali' => $marketingService->canaliConFatturato()
         ])->extends('inizio')->section('content');
     }

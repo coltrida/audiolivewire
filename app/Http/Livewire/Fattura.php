@@ -68,6 +68,6 @@ class Fattura extends Component
 
     public function render()
     {
-        return view('livewire.fattura')->extends('inizio')->section('content');
+        return view('livewire.fattura.fattura')->extends('inizio')->section('content');
     }
 }

@@ -132,7 +132,7 @@ class Budget extends Component
         $this->getNovembre = (int)$this->novembre != 0 ? ((int)$this->budget * (int)$this->novembre)/100 : 0;
         $this->getDicembre = (int)$this->dicembre != 0 ? ((int)$this->budget * (int)$this->dicembre)/100 : 0;
         $this->verifica = $this->getGennaio + $this->getFebbraio + $this->getMarzo + $this->getAprile + $this->getMaggio + $this->getGiugno + $this->getLuglio + $this->getAgosto + $this->getSettembre + $this->getOttobre + $this->getNovembre + $this->getDicembre;
-        return view('livewire.budget', [
+        return view('livewire.gestione.budget', [
             'audioprotesisti' => $userService->getAudioprotesisti()
         ])->extends('inizio')->section('content');
     }

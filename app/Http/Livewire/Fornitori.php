@@ -59,7 +59,7 @@ class Fornitori extends Component
 
     public function render(FornitoreService $fornitoreService)
     {
-        return view('livewire.fornitori', [
+        return view('livewire.fornitori.fornitori', [
             'fornitori' => $fornitoreService->fornitori()
         ])->extends('inizio')->section('content');
     }

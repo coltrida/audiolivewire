@@ -24,7 +24,7 @@
                         <div class="col">
                             <select wire:model="filialeId" class="w-full rounded border shadow p-2 mr-2 my-2" style="color: black" aria-label="Default select example">
                                 <option selected>filiale</option>
-                                @foreach($filiali as $item)
+                                @foreach($filialiUser as $item)
                                     <option value="{{$item->id}}">{{$item->nome}}</option>
                                 @endforeach
                             </select>

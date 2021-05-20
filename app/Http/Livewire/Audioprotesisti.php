@@ -44,7 +44,7 @@ class Audioprotesisti extends Component
 
     public function render(UserService $userService, FilialeService $filialeService)
     {
-        return view('livewire.audioprotesisti', [
+        return view('livewire.personale.audioprotesisti', [
             'audioprotesisti' => $userService->getAudioprotesisti(),
             'filiali' => $filialeService->filiali()
         ])->extends('inizio')->section('content');

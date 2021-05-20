@@ -26,7 +26,7 @@ class AssociaFiliale extends Component
 
     public function render(UserService $userService, FilialeService $filialeService)
     {
-        return view('livewire.associa-filiale', [
+        return view('livewire.gestione.associa-filiale', [
             'audioprotesisti' => $userService->getAudioprotesisti(),
             'amministrazione' => $userService->getAmministrazione(),
             'filiali' => $filialeService->filiali()

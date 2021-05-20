@@ -30,7 +30,7 @@ class TempiRecall extends Component
 
     public function render(TipologiaService $tipologiaService)
     {
-        return view('livewire.tempi-recall', [
+        return view('livewire.gestione.tempi-recall', [
             'tipologie' => $tipologiaService->tipologie()
         ])->extends('inizio')->section('content');
     }

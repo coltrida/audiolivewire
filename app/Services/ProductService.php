@@ -43,6 +43,21 @@ class ProductService
         }
     }
 
+    public function prodottiSottoScorta($idFiliale, $ricerca)
+    {
+        /*if($ricerca == ''){
+            return Filiale::with(['products' => function ($q){
+                $q->with(['filiale', 'fornitore', 'listino'])->where('stato', 'FILIALE')->orderBy('fornitore_id')->orderBy('listino_id');
+            }])->find($idFiliale)->products;
+        } else {
+            return Filiale::with(['products' => function ($q) use($ricerca){
+                $q->with(['filiale', 'fornitore', 'listino'])->whereHas('listino', function($z) use($ricerca){
+                    $z->where('nome', 'like', '%'.$ricerca.'%');
+                })->where('stato', config('enum.statoAPA.filiale'))->orWhere([['matricola', 'like', '%'.$ricerca.'%'], ['stato', config('enum.statoAPA.filiale')]]);
+            }])->find($idFiliale)->products;
+        }*/
+    }
+
     public function prodottiInArrivo($idFiliale, $ricerca)
     {
         if($ricerca == ''){

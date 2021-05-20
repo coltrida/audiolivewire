@@ -26,7 +26,7 @@ class UserService
 
     public function getFiliali()
     {
-        return User::with('filiale')->find(Auth::id())->orderBy('nome');
+        return User::with('filiale')->find(Auth::id())->filiale;
     }
 
     public function getRecapitiOfUser()
@@ -79,6 +79,7 @@ class UserService
         $audio->each(function ($item, $key) use(&$fatturati, $meseAttuale, $annoAttuale) {
             $vendite = [];
             $budget = [];
+            $budgetAdOggi = [];
             $delta = [];
 
             $budget[1] = number_format( ( (int)$item->budget->gennaio * (int)$item->budget->budgetAnno ) /100, 0, ',', '.' );
@@ -95,13 +96,14 @@ class UserService
             $budget[12] = number_format(( (int)$item->budget->dicembre * (int)$item->budget->budgetAnno ) /100, 0, ',', '.' );
 
             for($i = 1; $i <= $meseAttuale; $i++){
+                $budgetAdOggi[$i] = $budget[$i];
                 $vendite[$i] = number_format( Prova::where([
                     ['stato', config('enum.statoAPA.fattura')],
                     ['mese_fine', $i],
                     ['anno_fine', $annoAttuale],
                     ['user_id', $item->id],
                 ])->sum('tot'), 0, ',', '.' );
-                $delta[$i] = number_format( (float) (($vendite[$i] / $budget[$i]) - 1 ) * 100, 2, ',', '.');
+                $delta[$i] = number_format( (float) (($vendite[$i] / $budget[$i]) - 1 ) * 100, 0, ',', '.');
             }
 
                 array_push($fatturati, [
@@ -109,6 +111,7 @@ class UserService
                 'budgetAnno' => $item->budget->budgetAnno,
                 'vendite' => $vendite,
                 'budget' => $budget,
+                'budgetAdOggi' => $budgetAdOggi,
                 'delta' => $delta,
             ]);
         });
@@ -127,7 +130,7 @@ class UserService
         return User::insert([
             'name' => $request['nome'],
             'email' => $request['email'],
-            'filiale_id' => $request['filiale_id'],
+            /*'filiale_id' => $request['filiale_id'],*/
             'ruolo' => $request['ruolo'],
         ]);
     }
