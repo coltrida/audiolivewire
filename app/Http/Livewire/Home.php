@@ -36,7 +36,9 @@ class Home extends Component
     public function mount(ProductService $productService, UserService $userService)
     {
         if(isset(Auth::user()->name)){
-            $this->prodottiRichiesti = $productService->prodottiRichiestiTutteFiliali();
+            if (Auth::user()->isAmministrazione){
+                $this->prodottiRichiesti = $productService->prodottiRichiestiTutteFiliali();
+            }
 
             $this->proveInCorso = $userService->proveInCorso();
             $this->finalizzati = $userService->finalizzatiDelMese();

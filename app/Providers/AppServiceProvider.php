@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('*', function ($view)
+        /*view()->composer('*', function ($view)
         {
             $filiali = Filiale::orderBy('nome')->get();
             //dd($filiali);
@@ -39,6 +39,6 @@ class AppServiceProvider extends ServiceProvider
                 //dd($filialiAudio);
                 $view->with('filialiAudio', $filialiAudio );
             }
-        });
+        });*/
     }
 }

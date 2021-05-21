@@ -113,7 +113,7 @@
         <li>
             <hr class="dropdown-divider">
         </li>
-        <li><a class="dropdown-item" href="#">Invio sms</a></li>
+        <li><a class="dropdown-item" href="{{route('inviosms')}}">Invio sms</a></li>
         <li>
             <hr class="dropdown-divider">
         </li>

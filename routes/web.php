@@ -9,6 +9,7 @@ use App\Http\Livewire\Clients;
 use App\Http\Livewire\Filiali;
 use App\Http\Livewire\Fornitori;
 use App\Http\Livewire\Home;
+use App\Http\Livewire\InvioSms;
 use App\Http\Livewire\Listino;
 use App\Http\Livewire\LoginRegister;
 use App\Http\Livewire\Logout;
@@ -43,4 +44,5 @@ Route::group(['middleware' => ['auth','verifyIsAdmin'], 'prefix' => 'admin'], fu
     Route::get('/imposta/recall', TempiRecall::class)->name('imposta.recall');
     Route::get('/imposta/budget', Budget::class)->name('user.budget');
     Route::get('/statistiche/audioprotesisti', StatisticheAudio::class)->name('statistiche.audioprotesisti');
+    Route::get('/insiosms', InvioSms::class)->name('inviosms');
 });

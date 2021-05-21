@@ -8,7 +8,9 @@ use App\Models\Client;
 use App\Models\Filiale;
 use App\Models\FilialeUser;
 use App\Models\Prova;
+use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use function array_push;
@@ -17,6 +19,18 @@ use function dd;
 
 class FilialeService
 {
+    public function soloFiliali()
+    {
+        return Filiale::orderBy('nome')->get();
+    }
+
+    public function filialiAudio()
+    {
+        return User::with(['filiale' => function($q){
+            $q->orderBy('nome');
+        }] )->find(Auth::id())->filiale;
+    }
+
     public function filiali()
     {
         return Filiale::with(['audio' => function($q){
